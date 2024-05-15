@@ -1,0 +1,53 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Next.js: debug server-side",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "npm run dev"
+      },
+      {
+        "name": "Next.js: debug client-side",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000"
+      },
+      {
+        "name": "Next.js: debug full stack",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "npm run dev",
+        "serverReadyAction": {
+          "pattern": "- Local:.+(https?://.+)",
+          "uriFormat": "%s",
+          "action": "debugWithChrome"
+        }
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Generate SiteMap",
+        "program": "${workspaceFolder}/scripts/generate-sitemap.mjs",
+        "runtimeArgs": ["--experimental-modules"],
+        "skipFiles": ["<node_internals>/**"]
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Merge Translations",
+        "program": "${workspaceFolder}/scripts/merge-translations.mjs",
+        "runtimeArgs": ["--experimental-modules"],
+        "skipFiles": ["<node_internals>/**"]
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Remove Translations",
+        "program": "${workspaceFolder}/scripts/remove-translations.mjs",
+        "runtimeArgs": ["--experimental-modules"],
+        "skipFiles": ["<node_internals>/**"]
+      }
+
+    ]
+  }
