@@ -3,10 +3,13 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 
-
 export default function Home() {
-  const [birthDate, setBirthDate] = useState<Date | null>(null);
-  const [ageDate, setAgeDate] = useState<Date>(new Date());
+  const [birthMonth, setBirthMonth] = useState<number>(1);
+  const [birthDay, setBirthDay] = useState<number>(1);
+  const [birthYear, setBirthYear] = useState<number>(2000);
+  const [ageMonth, setAgeMonth] = useState<number>(new Date().getMonth() + 1);
+  const [ageDay, setAgeDay] = useState<number>(new Date().getDate());
+  const [ageYear, setAgeYear] = useState<number>(new Date().getFullYear());
   const [showResult, setShowResult] = useState<boolean>(false);
   const [age, setAge] = useState<{
     years: number;
@@ -18,20 +21,19 @@ export default function Home() {
     daysToNextBirthday: number;
   } | null>(null);
 
-  const handleBirthDateChange = (date: Date | null) => {
-    setBirthDate(date);
+  const handleBirthDateChange = () => {
     setAge(null);
     setShowResult(false);
   };
 
-  const handleAgeDateChange = (date: Date) => {
-    setAgeDate(date);
+  const handleAgeDateChange = () => {
     setAge(null);
     setShowResult(false);
   };
 
   const calculateAge = () => {
-    if (!birthDate) return;
+    const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
+    const ageDate = new Date(ageYear, ageMonth - 1, ageDay);
 
     const today = ageDate;
     const birthDateCopy = new Date(birthDate.getTime());
@@ -75,6 +77,10 @@ export default function Home() {
     setShowResult(true);
   };
 
+  const getDaysInMonth = (year: number, month: number) => {
+    return new Date(year, month, 0).getDate();
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <Head>
@@ -85,29 +91,119 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full mb-8">
           <h1 className="text-3xl font-bold mb-6">Chronological Age Calculator</h1>
-          <div className="mb-4">
-            <label htmlFor="birthDate" className="block text-gray-700 font-bold mb-2">
-              Date of Birth:
-            </label>
-            <input
-              type="date"
-              id="birthDate"
-              value={birthDate ? birthDate.toISOString().split('T')[0] : ''}
-              onChange={(e) => handleBirthDateChange(e.target.value ? new Date(e.target.value) : null)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+          <div className="mb-4 flex justify-between">
+            <div className="w-1/3 mr-2">
+              <label htmlFor="birthMonth" className="block text-gray-700 font-bold mb-2">
+                Month
+              </label>
+              <select
+                id="birthMonth"
+                value={birthMonth}
+                onChange={(e) => {
+                  setBirthMonth(parseInt(e.target.value));
+                  handleBirthDateChange();
+                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                {Array.from({ length: 12 }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {new Date(0, i).toLocaleString('default', { month: 'long' })}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-1/3 mr-2">
+              <label htmlFor="birthDay" className="block text-gray-700 font-bold mb-2">
+                Day
+              </label>
+              <select
+                id="birthDay"
+                value={birthDay}
+                onChange={(e) => {
+                  setBirthDay(parseInt(e.target.value));
+                  handleBirthDateChange();
+                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                {Array.from({ length: getDaysInMonth(birthYear, birthMonth) }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-1/3">
+              <label htmlFor="birthYear" className="block text-gray-700 font-bold mb-2">
+                Year
+              </label>
+              <input
+                type="number"
+                id="birthYear"
+                value={birthYear}
+                onChange={(e) => {
+                  setBirthYear(parseInt(e.target.value));
+                  handleBirthDateChange();
+                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
           </div>
-          <div className="mb-6">
-            <label htmlFor="ageDate" className="block text-gray-700 font-bold mb-2">
-              Age on This Date:
-            </label>
-            <input
-              type="date"
-              id="ageDate"
-              value={ageDate.toISOString().split('T')[0]}
-              onChange={(e) => handleAgeDateChange(new Date(e.target.value))}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+          <div className="mb-6 flex justify-between">
+            <div className="w-1/3 mr-2">
+              <label htmlFor="ageMonth" className="block text-gray-700 font-bold mb-2">
+                Month
+              </label>
+              <select
+                id="ageMonth"
+                value={ageMonth}
+                onChange={(e) => {
+                  setAgeMonth(parseInt(e.target.value));
+                  handleAgeDateChange();
+                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                {Array.from({ length: 12 }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {new Date(0, i).toLocaleString('default', { month: 'long' })}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-1/3 mr-2">
+              <label htmlFor="ageDay" className="block text-gray-700 font-bold mb-2">
+                Day
+              </label>
+              <select
+                id="ageDay"
+                value={ageDay}
+                onChange={(e) => {
+                  setAgeDay(parseInt(e.target.value));
+                  handleAgeDateChange();
+                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                {Array.from({ length: getDaysInMonth(ageYear, ageMonth) }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="w-1/3">
+              <label htmlFor="ageYear" className="block text-gray-700 font-bold mb-2">
+                Year
+              </label>
+              <input
+                type="number"
+                id="ageYear"
+                value={ageYear}
+                onChange={(e) => {
+                  setAgeYear(parseInt(e.target.value));
+                  handleAgeDateChange();
+                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
           </div>
           <button
             onClick={calculateAge}
@@ -124,11 +220,11 @@ export default function Home() {
               <div className="text-right">
                 {age.years} years, {age.months} months, {age.days} days
               </div>
-              <div className="text-left font-bold">Months &amp; Days:</div>
+              <div className="text-left font-bold">Months & Days:</div>
               <div className="text-right">
                 {age.months} months, {age.days} days
               </div>
-              <div className="text-left font-bold">Weeks &amp; Days:</div>
+              <div className="text-left font-bold">Weeks & Days:</div>
               <div className="text-right">
                 {age.weeks} weeks, {age.days % 7} days
               </div>
