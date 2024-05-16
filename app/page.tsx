@@ -2,6 +2,16 @@
 
 import React, { useState } from 'react';
 import Head from 'next/head';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+
 
 export default function Home() {
   const [birthMonth, setBirthMonth] = useState<number>(1);
@@ -20,6 +30,21 @@ export default function Home() {
     seconds: number;
     daysToNextBirthday: number;
   } | null>(null);
+
+  const onBirthMonthChange = (value: string) => {
+    setBirthMonth(parseInt(value));
+    handleBirthDateChange();
+  }
+
+  const onBirthDayChange = (value: string) => {
+    setBirthDay(parseInt(value));
+    handleBirthDateChange();
+  }
+
+  const onAgeMonthChange = (value: string) => {
+    setAgeMonth(parseInt(value));
+    handleAgeDateChange();
+  }
 
   const handleBirthDateChange = () => {
     setAge(null);
@@ -83,11 +108,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
-      <Head>
-        <title>Chronological Age Calculator</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full mb-8">
           <h1 className="text-3xl font-bold mb-6">Chronological Age Calculator</h1>
@@ -96,47 +116,47 @@ export default function Home() {
               <label htmlFor="birthMonth" className="block text-gray-700 font-bold mb-2">
                 Month
               </label>
-              <select
-                id="birthMonth"
-                value={birthMonth}
-                onChange={(e) => {
-                  setBirthMonth(parseInt(e.target.value));
-                  handleBirthDateChange();
-                }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              <Select
+                value={birthMonth.toString()}
+                defaultValue={birthMonth.toString()}
+                onValueChange={onBirthMonthChange}
               >
-                {Array.from({ length: 12 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {new Date(0, i).toLocaleString('default', { month: 'long' })}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder={birthMonth.toString()} />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array.from({ length: 12 }, (_, i) => (
+                    <SelectItem key={i + 1} value={(i + 1).toString()}>{new Date(0, i).toLocaleString('default', { month: 'long' })}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="w-1/3 mr-2">
               <label htmlFor="birthDay" className="block text-gray-700 font-bold mb-2">
                 Day
               </label>
-              <select
-                id="birthDay"
-                value={birthDay}
-                onChange={(e) => {
-                  setBirthDay(parseInt(e.target.value));
-                  handleBirthDateChange();
-                }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              <Select
+                value={birthDay.toString()}
+                defaultValue={birthDay.toString()}
+                onValueChange={onBirthDayChange}
               >
-                {Array.from({ length: getDaysInMonth(birthYear, birthMonth) }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder={birthDay.toString()} />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array.from({ length: 12 }, (_, i) => (
+                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                      {i + 1}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="w-1/3">
               <label htmlFor="birthYear" className="block text-gray-700 font-bold mb-2">
                 Year
               </label>
-              <input
+              <Input
                 type="number"
                 id="birthYear"
                 value={birthYear}
@@ -144,7 +164,6 @@ export default function Home() {
                   setBirthYear(parseInt(e.target.value));
                   handleBirthDateChange();
                 }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -153,47 +172,50 @@ export default function Home() {
               <label htmlFor="ageMonth" className="block text-gray-700 font-bold mb-2">
                 Month
               </label>
-              <select
-                id="ageMonth"
-                value={ageMonth}
-                onChange={(e) => {
-                  setAgeMonth(parseInt(e.target.value));
-                  handleAgeDateChange();
-                }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              <Select
+                value={ageMonth.toString()}
+                defaultValue={ageMonth.toString()}
+                onValueChange={onAgeMonthChange}
               >
-                {Array.from({ length: 12 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {new Date(0, i).toLocaleString('default', { month: 'long' })}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder={ageMonth.toString()} />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array.from({ length: 12 }, (_, i) => (
+                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                      {new Date(0, i).toLocaleString('default', { month: 'long' })}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
             </div>
             <div className="w-1/3 mr-2">
               <label htmlFor="ageDay" className="block text-gray-700 font-bold mb-2">
                 Day
               </label>
-              <select
-                id="ageDay"
-                value={ageDay}
-                onChange={(e) => {
-                  setAgeDay(parseInt(e.target.value));
-                  handleAgeDateChange();
-                }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              <Select
+                value={ageDay.toString()}
+                defaultValue={ageDay.toString()}
+                onValueChange={onBirthDayChange}
               >
-                {Array.from({ length: getDaysInMonth(ageYear, ageMonth) }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder={ageDay.toString()} />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array.from({ length: getDaysInMonth(ageYear, ageMonth) }, (_, i) => (
+                    <SelectItem key={i + 1} value={(i + 1).toString()}>
+                      {i + 1}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="w-1/3">
               <label htmlFor="ageYear" className="block text-gray-700 font-bold mb-2">
                 Year
               </label>
-              <input
+              <Input
                 type="number"
                 id="ageYear"
                 value={ageYear}
@@ -201,16 +223,14 @@ export default function Home() {
                   setAgeYear(parseInt(e.target.value));
                   handleAgeDateChange();
                 }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
-          <button
+          <Button
             onClick={calculateAge}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Calculate
-          </button>
+          </Button>
         </div>
         {showResult && age && (
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
