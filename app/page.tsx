@@ -65,6 +65,22 @@ export default function Home() {
     handleDateChange(undefined, undefined, undefined, undefined, parseInt(value));
   }
 
+  const onSetBirthToday = () => {
+    const today = new Date();
+    setBirthMonth(today.getMonth() + 1);
+    setBirthDay(today.getDate());
+    setBirthYear(today.getFullYear());
+    handleDateChange(today.getDate(), today.getMonth() + 1, today.getFullYear());
+  }
+
+  const onSetAgeToday = () => {
+    const today = new Date();
+    setAgeMonth(today.getMonth() + 1);
+    setAgeDay(today.getDate());
+    setAgeYear(today.getFullYear());
+    handleDateChange(undefined, undefined, undefined, today.getDate(), today.getMonth() + 1, today.getFullYear());
+  }
+
   const onAgeYearChange = (value: string) => {
     const year = parseInt(value);
     setAgeYear(year);
@@ -222,10 +238,11 @@ export default function Home() {
         <h1 className="text-emerald-900	text-3xl font-bold mb-6 text-left mt-20">Chronological Age Calculator</h1>
         <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
           <div className="bg-emerald-200 rounded-lg shadow-lg max-w-md w-full mb-8">
-            <label htmlFor="birthMonth" className="block text-gray-700 font-bold mb-2 text-left px-8 pt-8">
+            <label htmlFor="birthMonth" className="block text-emerald-900 font-bold mb-2 text-left px-8 pt-8">
               Date Of Birth
             </label>
-            <div className="mb-4 flex justify-between px-8">
+
+            <div className="flex justify-between px-8">
               <div className="w-1/3 mr-2">
                 <Select
                   value={birthMonth.toString()}
@@ -271,11 +288,19 @@ export default function Home() {
                 />
               </div>
             </div>
+            <div className='w-full flex justify-start pl-4'>
+              <Button variant="link" className='text-emerald-600 pt-0 m-0'
+                onClick={onSetBirthToday}
+              >
+                Today
+              </Button>
+            </div>
+
             <div className='bg-emerald-300 pt-2 pb-2'>
-              <label htmlFor="birthMonth" className="block text-gray-700 font-bold mb-2 text-left px-8">
+              <label htmlFor="birthMonth" className="block text-emerald-900 font-bold mb-2 text-left px-8">
                 Age on This Date
               </label>
-              <div className="mb-6 flex justify-between px-8">
+              <div className="flex justify-between px-8">
                 <div className="w-1/3 mr-2">
                   <Select
                     value={ageMonth.toString()}
@@ -326,6 +351,13 @@ export default function Home() {
                   />
                 </div>
               </div>
+              <div className='w-full flex justify-start pl-4'>
+                <Button variant="link" className='text-emerald-600 pt-0 m-0'
+                  onClick={onSetAgeToday}>
+                  Today
+                </Button>
+              </div>
+
             </div>
             <div className='flex justify-end w-full'>
               <Button
