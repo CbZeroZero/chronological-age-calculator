@@ -21,11 +21,15 @@ export default function Home() {
   const [ageDay, setAgeDay] = useState<number>(new Date().getDate());
   const [ageYear, setAgeYear] = useState<number>(new Date().getFullYear());
   const [showResult, setShowResult] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
   const [age, setAge] = useState<{
     years: number;
     months: number;
     days: number;
-    weeks: number;
+    totalMonths: number,
+    remainingDaysAfterMonths: number,
+    totalWeeks: number;
+    remainingDaysAfterWeeks: number;
     totalDays: number;
     daysToNextBirthday: number;
   } | null>(null);
@@ -33,32 +37,67 @@ export default function Home() {
 
   const onBirthMonthChange = (value: string) => {
     setBirthMonth(parseInt(value));
-    handleBirthDateChange();
+    handleDateChange(undefined, parseInt(value));
   }
 
   const onBirthDayChange = (value: string) => {
     setBirthDay(parseInt(value));
-    handleBirthDateChange();
+    handleDateChange(parseInt(value));
+  }
+
+  const onBirthYearChange = (value: string) => {
+    const year = parseInt(value);
+    setBirthYear(year);
+    if (value === '') {
+      setHasError(true);
+    } else {
+      handleDateChange(undefined, undefined, year);
+    }
   }
 
   const onAgeDayChange = (value: string) => {
     setAgeDay(parseInt(value));
-    handleAgeDateChange();
+    handleDateChange(undefined, undefined, undefined, parseInt(value));
   }
 
   const onAgeMonthChange = (value: string) => {
     setAgeMonth(parseInt(value));
-    handleAgeDateChange();
+    handleDateChange(undefined, undefined, undefined, undefined, parseInt(value));
   }
 
-  const handleBirthDateChange = () => {
-    setAge(null);
-    setShowResult(false);
-  };
+  const onAgeYearChange = (value: string) => {
+    const year = parseInt(value);
+    setAgeYear(year);
+    if (value === '') {
+      setHasError(true);
+    } else {
+      handleDateChange(undefined, undefined, undefined, undefined, undefined, year);
+    }
+  }
 
-  const handleAgeDateChange = () => {
-    setAge(null);
-    setShowResult(false);
+  const handleDateChange = (
+    inputBirthDay?: number,
+    inputBirthMonth?: number,
+    inputBirthYear?: number,
+    inputAgeDay?: number,
+    inputAgeMonth?: number,
+    inputAgeYear?: number) => {
+
+    const usedBirthDay = inputBirthDay || birthDay;
+    const usedBirthMonth = inputBirthMonth || birthMonth;
+    const usedBirthYear = inputBirthYear || birthYear;
+    const usedAgeDay = inputAgeDay || ageDay;
+    const usedAgeMonth = inputAgeMonth || ageMonth;
+    const usedAgeYear = inputAgeYear || ageYear;
+    if (usedBirthYear > usedAgeYear) {
+      setHasError(true);
+    } else if (usedBirthYear === usedAgeYear && usedBirthMonth > usedAgeMonth) {
+      setHasError(true);
+    } else if (usedBirthYear === usedAgeYear && usedBirthMonth === usedAgeMonth && usedBirthDay > usedAgeDay) {
+      setHasError(true);
+    } else {
+      setHasError(false);
+    }
   };
 
   const calculateAge = () => {
@@ -67,48 +106,59 @@ export default function Home() {
     const today = new Date();
     const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    const birthDateCopy = new Date(birthDate.getTime());
+    let years = ageDate.getFullYear() - birthDate.getFullYear();
+    let months = ageDate.getMonth() - birthDate.getMonth();
+    let days = ageDate.getDate() - birthDate.getDate();
 
-    let years = ageDate.getFullYear() - birthDateCopy.getFullYear();
-    let months = ageDate.getMonth() - birthDateCopy.getMonth();
-    let days = ageDate.getDate() - birthDateCopy.getDate();
-
+    // Adjust months and years if necessary
     if (months < 0 || (months === 0 && days < 0)) {
       years--;
       months += 12;
     }
 
+    // Adjust days and months if necessary
     if (days < 0) {
       const lastMonth = new Date(ageDate.getFullYear(), ageDate.getMonth(), 0);
       days += lastMonth.getDate();
       months--;
     }
 
-    const weeks = Math.floor((years * 365.25 + months * 30.44 + days) / 7);
-    const totalDays = years * 365 + months * 30 + days;
+    // Calculate total days between birthDate and ageDate
+    const totalDays = Math.floor((ageDate.getTime() - birthDate.getTime()) / (1000 * 60 * 60 * 24));
 
-    const nextBirthday = new Date(
-      ageDate.getFullYear(),
-      birthDateCopy.getMonth(),
-      birthDateCopy.getDate() + 1
-    );
-    if (nextBirthday <= ageDate) {
-      nextBirthday.setFullYear(ageDate.getFullYear() + 1);
+    // Calculate weeks and remaining days
+    const totalWeeks = Math.floor(totalDays / 7);
+    const remainingDaysAfterWeeks = totalDays % 7;
+
+    // Calculate days to next birthday
+    let nextBirthdayYear = ageDate.getFullYear();
+    if (ageDate >= new Date(ageDate.getFullYear(), birthDate.getMonth(), birthDate.getDate())) {
+      nextBirthdayYear += 1;
     }
-    const daysToNextBirthday =
-      Math.floor((nextBirthday.getTime() - ageDate.getTime()) / (1000 * 60 * 60 * 24)) || 365;
+    const nextBirthday = new Date(nextBirthdayYear, birthDate.getMonth(), birthDate.getDate());
+    const daysToNextBirthday = Math.floor((nextBirthday.getTime() - ageDate.getTime()) / (1000 * 60 * 60 * 24));
 
+    // Calculate total months and remaining days
+    const totalMonths = years * 12 + months;
+    const remainingDaysAfterMonths = days;
+
+    // Set state or handle results
     setAge({
       years,
       months,
       days,
-      weeks,
+      totalMonths,
+      remainingDaysAfterMonths,
+      totalWeeks,
+      remainingDaysAfterWeeks,
       totalDays,
       daysToNextBirthday,
     });
+
     setAgeString(getAgeString(years, months, days, ageDate < startOfToday));
     setShowResult(true);
   };
+
 
   const getDaysInMonth = (year: number, month: number) => {
     return new Date(year, month, 0).getDate();
@@ -140,10 +190,22 @@ export default function Home() {
     }
 
     if (ageStringParts.length === 0) {
-      return `${prefix} ${ageStringParts.join(', ')} 0 old`;
+      return `${prefix} ${ageStringParts.join(', ')} 0 years old`;
     } else {
       return `${prefix} ${ageStringParts.join(', ')} old`;
     }
+  };
+
+  const formatMonths = (months: number) => {
+    return months <= 1 ? 'month' : 'months';
+  };
+
+  const formatDays = (days: number) => {
+    return days <= 1 ? 'day' : 'days';
+  };
+
+  const formatWeeks = (weeks: number) => {
+    return weeks <= 1 ? 'week' : 'weeks';
   };
 
   return (
@@ -196,8 +258,7 @@ export default function Home() {
                   id="birthYear"
                   value={birthYear}
                   onChange={(e) => {
-                    setBirthYear(parseInt(e.target.value));
-                    handleBirthDateChange();
+                    onBirthYearChange(e.target.value);
                   }}
                 />
               </div>
@@ -248,10 +309,11 @@ export default function Home() {
                   <Input
                     type="number"
                     id="ageYear"
+                    min={1}
+                    max={9999}
                     value={ageYear}
                     onChange={(e) => {
-                      setAgeYear(parseInt(e.target.value));
-                      handleAgeDateChange();
+                      onAgeYearChange(e.target.value);
                     }}
                   />
                 </div>
@@ -262,6 +324,7 @@ export default function Home() {
                 onClick={calculateAge}
                 className='my-4 mr-8'
                 variant="emerald"
+                disabled={hasError}
               >
                 Calculate
               </Button>
@@ -279,16 +342,16 @@ export default function Home() {
                 <div className="grid grid-cols-2">
                   <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Months & Days:</div>
                   <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
-                    {age.months} months, {age.days} days
+                    {age.totalMonths} {formatMonths(age.totalMonths)} and {age.remainingDaysAfterMonths} {formatDays(age.remainingDaysAfterMonths)}
                   </div>
                   <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Weeks & Days:</div>
                   <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
-                    {age.weeks} weeks, {age.days % 7} days
+                    {age.totalWeeks} {formatWeeks(age.totalWeeks)} and {age.remainingDaysAfterWeeks} {formatDays(age.remainingDaysAfterWeeks)}
                   </div>
                   <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Total Days:</div>
-                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.totalDays}</div>
+                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.totalDays} {formatDays(age.totalDays)}</div>
                   <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Days to Next Birthday:</div>
-                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.daysToNextBirthday}</div>
+                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.daysToNextBirthday} {formatDays(age.daysToNextBirthday)}</div>
                 </div>
               </div>
             </div>
