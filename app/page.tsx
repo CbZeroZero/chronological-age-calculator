@@ -161,6 +161,9 @@ export default function Home() {
 
 
   const getDaysInMonth = (year: number, month: number) => {
+    if (year === undefined) {
+      year = new Date().getFullYear();
+    }
     return new Date(year, month, 0).getDate();
   };
 
@@ -244,7 +247,7 @@ export default function Home() {
                     <SelectValue placeholder={birthDay.toString()} />
                   </SelectTrigger>
                   <SelectContent>
-                    {Array.from({ length: 12 }, (_, i) => (
+                    {Array.from({ length: getDaysInMonth(birthYear, birthMonth) }, (_, i) => (
                       <SelectItem key={i + 1} value={(i + 1).toString()}>
                         {i + 1}
                       </SelectItem>
