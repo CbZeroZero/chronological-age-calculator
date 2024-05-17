@@ -174,28 +174,33 @@ export default function Home() {
 
     const prefix = isAgeInPast ? 'You were' : 'You are';
 
-    const ageStringParts = [];
+    let result = prefix;
 
     if (years > 0) {
-      ageStringParts.push(`${years} ${yearsSuffix}`);
+      result += ` ${years} ${yearsSuffix}`;
     }
 
     if (months > 0) {
-      ageStringParts.push(`${months} ${monthsSuffix}`);
+      if (years > 0) {
+        result += ',';
+      }
+      result += ` ${months} ${monthsSuffix}`;
     }
 
     if (days > 0) {
       if (years > 0 && months > 0) {
-        ageStringParts.push(`and ${days} ${daysSuffix}`);
+        result += ` and ${days} ${daysSuffix}`;
+      } else if (years > 0 || months > 0) {
+        result += `, ${days} ${daysSuffix}`;
       } else {
-        ageStringParts.push(`${days} ${daysSuffix}`);
+        result += ` ${days} ${daysSuffix}`;
       }
     }
 
-    if (ageStringParts.length === 0) {
-      return `${prefix} ${ageStringParts.join(', ')} 0 years old`;
+    if (result === prefix) {
+      return `${prefix} 0 year old`;
     } else {
-      return `${prefix} ${ageStringParts.join(', ')} old`;
+      return result + ' old';
     }
   };
 
