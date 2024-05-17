@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Head from 'next/head';
+
 import {
   Select,
   SelectContent,
@@ -27,9 +27,9 @@ export default function Home() {
     days: number;
     weeks: number;
     totalDays: number;
-    seconds: number;
     daysToNextBirthday: number;
   } | null>(null);
+  const [ageString, setAgeString] = useState<string>('');
 
   const onBirthMonthChange = (value: string) => {
     setBirthMonth(parseInt(value));
@@ -64,13 +64,14 @@ export default function Home() {
   const calculateAge = () => {
     const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
     const ageDate = new Date(ageYear, ageMonth - 1, ageDay);
+    const today = new Date();
+    const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    const today = ageDate;
     const birthDateCopy = new Date(birthDate.getTime());
 
-    let years = today.getFullYear() - birthDateCopy.getFullYear();
-    let months = today.getMonth() - birthDateCopy.getMonth();
-    let days = today.getDate() - birthDateCopy.getDate();
+    let years = ageDate.getFullYear() - birthDateCopy.getFullYear();
+    let months = ageDate.getMonth() - birthDateCopy.getMonth();
+    let days = ageDate.getDate() - birthDateCopy.getDate();
 
     if (months < 0 || (months === 0 && days < 0)) {
       years--;
@@ -78,22 +79,24 @@ export default function Home() {
     }
 
     if (days < 0) {
-      const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      const lastMonth = new Date(ageDate.getFullYear(), ageDate.getMonth(), 0);
       days += lastMonth.getDate();
       months--;
     }
 
     const weeks = Math.floor((years * 365.25 + months * 30.44 + days) / 7);
     const totalDays = years * 365 + months * 30 + days;
-    const seconds = totalDays * 24 * 60 * 60;
 
     const nextBirthday = new Date(
-      today.getFullYear(),
+      ageDate.getFullYear(),
       birthDateCopy.getMonth(),
       birthDateCopy.getDate() + 1
     );
+    if (nextBirthday <= ageDate) {
+      nextBirthday.setFullYear(ageDate.getFullYear() + 1);
+    }
     const daysToNextBirthday =
-      Math.floor((nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)) || 365;
+      Math.floor((nextBirthday.getTime() - ageDate.getTime()) / (1000 * 60 * 60 * 24)) || 365;
 
     setAge({
       years,
@@ -101,9 +104,9 @@ export default function Home() {
       days,
       weeks,
       totalDays,
-      seconds,
       daysToNextBirthday,
     });
+    setAgeString(getAgeString(years, months, days, ageDate < startOfToday));
     setShowResult(true);
   };
 
@@ -111,11 +114,43 @@ export default function Home() {
     return new Date(year, month, 0).getDate();
   };
 
+  const getAgeString = (years: number, months: number, days: number, isAgeInPast: boolean) => {
+    const yearsSuffix = years > 1 ? 'years' : 'year';
+    const monthsSuffix = months > 1 ? 'months' : 'month';
+    const daysSuffix = days > 1 ? 'days' : 'day';
+
+    const prefix = isAgeInPast ? 'You were' : 'You are';
+
+    const ageStringParts = [];
+
+    if (years > 0) {
+      ageStringParts.push(`${years} ${yearsSuffix}`);
+    }
+
+    if (months > 0) {
+      ageStringParts.push(`${months} ${monthsSuffix}`);
+    }
+
+    if (days > 0) {
+      if (years > 0 && months > 0) {
+        ageStringParts.push(`and ${days} ${daysSuffix}`);
+      } else {
+        ageStringParts.push(`${days} ${daysSuffix}`);
+      }
+    }
+
+    if (ageStringParts.length === 0) {
+      return `${prefix} ${ageStringParts.join(', ')} 0 old`;
+    } else {
+      return `${prefix} ${ageStringParts.join(', ')} old`;
+    }
+  };
+
   return (
     <div className="flex flex-col items-center min-h-screen py-2 bg-emerald-50">
       <div className='w-[90%] sm:w-[70%] md:w-[65%] xl:w-[50%]'>
-        <h1 className="text-3xl font-bold mb-6 text-left mt-20">Chronological Age Calculator</h1>
-        <main className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
+        <h1 className="text-emerald-900	text-3xl font-bold mb-6 text-left mt-20">Chronological Age Calculator</h1>
+        <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
           <div className="bg-emerald-200 rounded-lg shadow-lg max-w-md w-full mb-8">
             <label htmlFor="birthMonth" className="block text-gray-700 font-bold mb-2 text-left px-8 pt-8">
               Date Of Birth
@@ -222,39 +257,43 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Button
-              onClick={calculateAge}
-              className='my-4'
-            >
-              Calculate
-            </Button>
+            <div className='flex justify-end w-full'>
+              <Button
+                onClick={calculateAge}
+                className='my-4 mr-8'
+                variant="emerald"
+              >
+                Calculate
+              </Button>
+            </div>
           </div>
-          {showResult && age && (
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-              <h2 className="text-2xl font-bold mb-6">Result</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-left font-bold">Years, Months, Days:</div>
-                <div className="text-right">
-                  {age.years} years, {age.months} months, {age.days} days
+        </div>
+        {showResult && age && (
+          <>
+            <h2 className="text-emerald-900	text-2xl font-bold mb-6 mt-12">Your Age</h2>
+            <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
+              <div className="bg-emerald-200 rounded-lg shadow-lg p-8 max-w-md w-full">
+                <p className='text-emerald-800 text-base text-left pl-2 mb-2 font-medium'>
+                  {ageString}
+                </p>
+                <div className="grid grid-cols-2">
+                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Months & Days:</div>
+                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
+                    {age.months} months, {age.days} days
+                  </div>
+                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Weeks & Days:</div>
+                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
+                    {age.weeks} weeks, {age.days % 7} days
+                  </div>
+                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Total Days:</div>
+                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.totalDays}</div>
+                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Days to Next Birthday:</div>
+                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.daysToNextBirthday}</div>
                 </div>
-                <div className="text-left font-bold">Months & Days:</div>
-                <div className="text-right">
-                  {age.months} months, {age.days} days
-                </div>
-                <div className="text-left font-bold">Weeks & Days:</div>
-                <div className="text-right">
-                  {age.weeks} weeks, {age.days % 7} days
-                </div>
-                <div className="text-left font-bold">Total Days:</div>
-                <div className="text-right">{age.totalDays} days</div>
-                <div className="text-left font-bold">Total Seconds:</div>
-                <div className="text-right">{age.seconds} seconds</div>
-                <div className="text-left font-bold">Days to Next Birthday:</div>
-                <div className="text-right">{age.daysToNextBirthday} days</div>
               </div>
             </div>
-          )}
-        </main>
+          </>
+        )}
       </div>
     </div>
   );
