@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import {
   Select,
@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 
 
 export default function Home() {
+  const resultDivRef = useRef<HTMLDivElement>(null);
   const [birthMonth, setBirthMonth] = useState<number>(1);
   const [birthDay, setBirthDay] = useState<number>(1);
   const [birthYear, setBirthYear] = useState<number>(2000);
@@ -175,6 +176,11 @@ export default function Home() {
     setShowResult(true);
   };
 
+  useEffect(() => {
+    if (showResult && age && resultDivRef.current) {
+      resultDivRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [showResult, age]);
 
   const getDaysInMonth = (year: number, month: number) => {
     if (year === undefined) {
@@ -308,7 +314,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className='w-full flex justify-start pl-4'>
+            <div className='w-full flex justify-end pr-4'>
               <Button variant="link" className='text-emerald-600 pt-0 m-0'
                 onClick={onSetBirthToday}
               >
@@ -371,7 +377,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className='w-full flex justify-start pl-4'>
+              <div className='w-full flex justify-end pr-4'>
                 <Button variant="link" className='text-emerald-600 pt-0 m-0'
                   onClick={onSetAgeToday}>
                   Today
@@ -379,6 +385,10 @@ export default function Home() {
               </div>
 
             </div>
+            {
+              hasError &&
+              <p className='text-xs text-red-600 text-right mr-8 mt-1'>Date of Birth cannot be after the Age on This Date</p>
+            }
             <div className='flex justify-end w-full'>
               <Button
                 onClick={calculateAge}
@@ -394,7 +404,9 @@ export default function Home() {
         {showResult && age && (
           <>
             <h2 className="text-emerald-900	text-2xl font-bold mb-2 mt-12">Your Age</h2>
-            <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 py-8 text-center rounded-lg">
+            <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 py-8 text-center rounded-lg"
+              ref={resultDivRef}
+            >
               <div className="bg-emerald-200 rounded-lg shadow-lg p-8 max-w-md w-full">
                 <div className="bg-emerald-300 p-2 rounded-xl border border-stone-50">
                   <p className='text-emerald-900 font-bold text-base text-left font-bold'>
