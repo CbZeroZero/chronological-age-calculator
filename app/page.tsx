@@ -1,5 +1,19 @@
 import React from 'react';
+import type { Metadata } from 'next'
 import AgeCalculator from '@/components/AgeCalculator';
+
+export async function generateMetadata(): Promise<Metadata> {
+
+  var canonicalUrl = 'https://www.chronologicalagecalculator.org';
+
+  return {
+    title: 'Chronological Age Calculator | Quick And Accurate',
+    description: 'Calculate your chronological age from your date of birth. Find out your age in years, months and days based upon any date',
+    alternates: {
+      canonical: canonicalUrl
+    }
+  }
+}
 
 export default function Home() {
   return (
@@ -9,22 +23,22 @@ export default function Home() {
         <AgeCalculator />
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>What is Chronological Age</h2>
         <p className='text-emerald-900 mt-2'> Chronological age means the age or time elapsed from the time a person is born until the time they are asked their age. It is the measure of age in years, months, and days that one commonly gives when asked their age.</p>
-        <p className='text-emerald-900 mt-2'>While chronological age can’t be reversed, biological/epigenetic age can be.</p>
+        <p className='text-emerald-900 mt-2'>While chronological age can&apos;t be reversed, biological/epigenetic age can be.</p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>How to Calculate Chronological Age</h2>
         <p className='text-emerald-900 mt-2'>Chronological age is calculated by taking the difference between the day, month, and year of birth and the day, month, and year of when asked. It is calculated on most psychological tests based on the date the test was taken and the date of birth.</p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Biological Age vs Chronological Age</h2>
         <p className='text-emerald-900 mt-2'>
-          Chronological age is the number of years you've been alive, while biological age refers to how old your cells and tissues are based on physiological evidence.
+          Chronological age is the number of years you&apos;ve been alive, while biological age refers to how old your cells and tissues are based on physiological evidence.
         </p>
         <p className='text-emerald-900 mt-2'>
-          If you're especially healthy and fit for your age, your biological age may well be lower than your chronological age. But if you're sedentary, chronically ill, or in poor physical condition, your biological age may be higher.
+          If you&apos;re especially healthy and fit for your age, your biological age may well be lower than your chronological age. But if you&apos;re sedentary, chronically ill, or in poor physical condition, your biological age may be higher.
         </p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Bone Age vs Chronological Age</h2>
         <p className='text-emerald-900 mt-2'>
           chronological age differs from bone age, chronological age is defined as the age in years between birth and the evaluation of a subject; bone age is defined by the age expressed in years that corresponds to the level of maturation of bones.
         </p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Mental Age and Chronological Age</h2>
-        <p className='text-emerald-900 mt-2'>Mental age is a concept related to intelligence. It looks at how a specific individual, at a specific age, performs intellectually, compared to average intellectual performance for that individual's actual chronological age.</p>
+        <p className='text-emerald-900 mt-2'>Mental age is a concept related to intelligence. It looks at how a specific individual, at a specific age, performs intellectually, compared to average intellectual performance for that individual&apos;s actual chronological age.</p>
       </div>
 
     </div>
