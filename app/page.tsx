@@ -233,6 +233,26 @@ export default function Home() {
   };
 
   return (
+    /**
+     * 西班牙语：Calculadora de Edad Cronológica
+     * 葡萄牙语：Calculadora de Idade Cronológica
+     * 日语：年齢計算機 
+     * 德语：Chronologischer Altersrechner
+     * 法语
+     * 意大利
+     * 旁遮普语：ਕ੍ਰਮਿਕ ਉਮਰ ਕੈਲਕੁਲੇਟਰ
+     * 韩语：연령 계산기
+     * 
+     * 年龄计算器也可以有页面，多语言竞争低
+     * 
+     * What is chronological age?
+     * How to calculate chronological age
+     * biological age vs chronological age
+     * bone age vs chronological age
+     * mental age and chronological age
+     * chronological age meaning
+     */
+
     <div className="flex flex-col items-center min-h-screen py-2 bg-emerald-50">
       <div className='w-[90%] sm:w-[70%] md:w-[65%] xl:w-[50%]'>
         <h1 className="text-emerald-900	text-3xl font-bold mb-6 text-left mt-20">Chronological Age Calculator</h1>
@@ -373,31 +393,53 @@ export default function Home() {
         </div>
         {showResult && age && (
           <>
-            <h2 className="text-emerald-900	text-2xl font-bold mb-6 mt-12">Your Age</h2>
-            <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
+            <h2 className="text-emerald-900	text-2xl font-bold mb-2 mt-12">Your Age</h2>
+            <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 py-8 text-center rounded-lg">
               <div className="bg-emerald-200 rounded-lg shadow-lg p-8 max-w-md w-full">
-                <p className='text-emerald-800 text-base text-left pl-2 mb-2 font-medium'>
-                  {ageString}
-                </p>
+                <div className="bg-emerald-300 p-2 rounded-xl border border-stone-50">
+                  <p className='text-emerald-900 font-bold text-base text-left font-bold'>
+                    {ageString}
+                  </p>
+                </div>
+
                 <div className="grid grid-cols-2">
-                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Months & Days:</div>
-                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
+                  <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Months & Days:</div>
+                  <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
                     {age.totalMonths} {formatMonths(age.totalMonths)} and {age.remainingDaysAfterMonths} {formatDays(age.remainingDaysAfterMonths)}
                   </div>
-                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Weeks & Days:</div>
-                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
+                  <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Weeks & Days:</div>
+                  <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
                     {age.totalWeeks} {formatWeeks(age.totalWeeks)} and {age.remainingDaysAfterWeeks} {formatDays(age.remainingDaysAfterWeeks)}
                   </div>
-                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Total Days:</div>
-                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.totalDays} {formatDays(age.totalDays)}</div>
-                  <div className="text-gray-700 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Days to Next Birthday:</div>
-                  <div className="text-gray-700 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.daysToNextBirthday} {formatDays(age.daysToNextBirthday)}</div>
+                  <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Total Days:</div>
+                  <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.totalDays} {formatDays(age.totalDays)}</div>
+                  {/* <div className="text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Days to Next Birthday:</div>
+                  <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.daysToNextBirthday} {formatDays(age.daysToNextBirthday)}</div> */}
                 </div>
               </div>
             </div>
           </>
         )}
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>What is Chronological Age</h2>
+        <p className='text-emerald-900 mt-2'> Chronological age means the age or time elapsed from the time a person is born until the time they are asked their age. It is the measure of age in years, months, and days that one commonly gives when asked their age.</p>
+        <p className='text-emerald-900 mt-2'>While chronological age can’t be reversed, biological/epigenetic age can be.</p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>How to Calculate Chronological Age</h2>
+        <p className='text-emerald-900 mt-2'>Chronological age is calculated by taking the difference between the day, month, and year of birth and the day, month, and year of when asked. It is calculated on most psychological tests based on the date the test was taken and the date of birth.</p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Biological Age vs Chronological Age</h2>
+        <p className='text-emerald-900 mt-2'>
+          Chronological age is the number of years you've been alive, while biological age refers to how old your cells and tissues are based on physiological evidence.
+        </p>
+        <p className='text-emerald-900 mt-2'>
+          If you're especially healthy and fit for your age, your biological age may well be lower than your chronological age. But if you're sedentary, chronically ill, or in poor physical condition, your biological age may be higher.
+        </p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Bone Age vs Chronological Age</h2>
+        <p className='text-emerald-900 mt-2'>
+          chronological age differs from bone age, chronological age is defined as the age in years between birth and the evaluation of a subject; bone age is defined by the age expressed in years that corresponds to the level of maturation of bones.
+        </p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Mental Age and Chronological Age</h2>
+        <p className='text-emerald-900 mt-2'>Mental age is a concept related to intelligence. It looks at how a specific individual, at a specific age, performs intellectually, compared to average intellectual performance for that individual's actual chronological age.</p>
       </div>
+
     </div>
   );
 };
