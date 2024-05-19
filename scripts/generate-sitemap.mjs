@@ -5,9 +5,7 @@ import { statSync } from 'fs';
 const websiteUrl = 'https://www.chronologicalagecalculator.org';
 const sitemapPath = './public/sitemap.xml';
 
-const languages = ['zh', 'en', 'bn', 'de', 'es', 'fr', 'it', 'pt',
-  'si', 'ar', 'ja', 'ko', 'ru', 'tr', 'pl', 'hi', 'id', 'ms', 'th', 'vi',
-  'nl', 'sv', 'uk', 'el', 'cs', 'hu', 'ro', 'da', 'fi', 'he', 'sk', 'bg'];
+const languages = ['en', 'zh', 'es', 'pt', 'de', 'fr', 'it', 'ja', 'ko'];
 const defaultLanguage = 'en';
 
 const generateUrlSet = (urls) => {
