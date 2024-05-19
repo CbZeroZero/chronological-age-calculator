@@ -2,7 +2,7 @@ import { writeFile } from 'fs/promises';
 import { globby } from 'globby';
 import { statSync } from 'fs';
 
-const websiteUrl = 'https://www.imageresizer.work';
+const websiteUrl = 'https://www.chronologicalagecalculator.org';
 const sitemapPath = './public/sitemap.xml';
 
 const languages = ['zh', 'en', 'bn', 'de', 'es', 'fr', 'it', 'pt',

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
+import { Bars3Icon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from '@/navigation';
@@ -11,6 +12,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
 import { useTranslations } from 'next-intl';
@@ -78,7 +80,7 @@ export default function NavbarPage() {
 
   return (
 
-    <NavigationMenu className='pb-2 lg:pt-2 w-full w-screen bg-emerald-300' ref={navRef}>
+    <NavigationMenu className='pb-2 pt-2 w-full w-screen bg-emerald-300' ref={navRef}>
       <div className='flex lg:flex-1 lg:justify-start lg:flex-row flex-col w-full ml-2'>
         <NavigationMenuList className=''>
           <NavigationMenuItem className='flex-1 lg:pb-0 lg:pt-0 pb-2 pt-2'>
@@ -86,15 +88,25 @@ export default function NavbarPage() {
               <NavigationMenuLink >
                 <div className='flex flex-row pl-4'>
                   <Image src="/logo.svg" className="mr-3 h-9" width="37" height="37" alt="Chronological Age Calculator Logo" />
-                  <span className="self-center whitespace-nowrap text-xl text-emerald-900 font-semibold dark:text-white">Chronological Age Calculator</span>
+                  <span className="hidden lg:block self-center whitespace-nowrap text-xl text-emerald-900 font-semibold dark:text-white">Chronological&nbsp;</span>
+
+                  <span className="self-center whitespace-nowrap text-xl text-emerald-900 font-semibold dark:text-white">Age Calculator</span>
                 </div>
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
+          <div ref={navDropdownRef}>
+            <NavigationMenuItem className='block lg:hidden bg-emerald-300'>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Bars3Icon className="h-4 w-4 arrow-icon" />
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </div>
+
         </NavigationMenuList>
       </div>
       <NavigationMenuList className='lg:mr-4'>
-        <NavigationMenuItem className={`${navDropdownOpen ? 'block' : 'hidden'} relative flex-1 border lg:border-0  lg:block`}>
+        <NavigationMenuItem className={`${navDropdownOpen ? 'block' : 'hidden'} relative flex-1 border lg:border-0 lg:block`}>
           <div ref={languageMenuRef}>
             <NavigationMenuTrigger className='w-full justify-start bg-emerald-300'>
               {t('language')}
