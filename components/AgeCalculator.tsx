@@ -276,10 +276,13 @@ export default function AgeCalculator() {
                                 <SelectTrigger>
                                     <SelectValue placeholder={birthMonth.toString()} />
                                 </SelectTrigger>
+
                                 <SelectContent>
-                                    {Array.from({ length: 12 }, (_, i) => (
-                                        <SelectItem key={i + 1} value={(i + 1).toString()}>{new Date(0, i).toLocaleString('default', { month: 'long' })}</SelectItem>
-                                    ))}
+                                    <div className='grid grid-cols-3'>
+                                        {Array.from({ length: 12 }, (_, i) => (
+                                            <SelectItem key={i + 1} value={(i + 1).toString()}>{new Date(0, i).toLocaleString('default', { month: 'long' })}</SelectItem>
+                                        ))}
+                                    </div>
                                 </SelectContent>
                             </Select>
                         </div>
@@ -293,11 +296,13 @@ export default function AgeCalculator() {
                                     <SelectValue placeholder={birthDay.toString()} />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    {Array.from({ length: getDaysInMonth(birthYear, birthMonth) }, (_, i) => (
-                                        <SelectItem key={i + 1} value={(i + 1).toString()}>
-                                            {i + 1}
-                                        </SelectItem>
-                                    ))}
+                                    <div className='grid grid-cols-5'>
+                                        {Array.from({ length: getDaysInMonth(birthYear, birthMonth) }, (_, i) => (
+                                            <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                                {i + 1}
+                                            </SelectItem>
+                                        ))}
+                                    </div>
                                 </SelectContent>
                             </Select>
                         </div>
@@ -335,11 +340,13 @@ export default function AgeCalculator() {
                                         <SelectValue placeholder={ageMonth.toString()} />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        {Array.from({ length: 12 }, (_, i) => (
-                                            <SelectItem key={i + 1} value={(i + 1).toString()}>
-                                                {new Date(0, i).toLocaleString('default', { month: 'long' })}
-                                            </SelectItem>
-                                        ))}
+                                        <div className='grid grid-cols-3'>
+                                            {Array.from({ length: 12 }, (_, i) => (
+                                                <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                                    {new Date(0, i).toLocaleString('default', { month: 'long' })}
+                                                </SelectItem>
+                                            ))}
+                                        </div>
                                     </SelectContent>
                                 </Select>
 
@@ -354,11 +361,13 @@ export default function AgeCalculator() {
                                         <SelectValue placeholder={ageDay.toString()} />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        {Array.from({ length: getDaysInMonth(ageYear, ageMonth) }, (_, i) => (
-                                            <SelectItem key={i + 1} value={(i + 1).toString()}>
-                                                {i + 1}
-                                            </SelectItem>
-                                        ))}
+                                        <div className='grid grid-cols-5'>
+                                            {Array.from({ length: getDaysInMonth(ageYear, ageMonth) }, (_, i) => (
+                                                <SelectItem key={i + 1} value={(i + 1).toString()}>
+                                                    {i + 1}
+                                                </SelectItem>
+                                            ))}
+                                        </div>
                                     </SelectContent>
                                 </Select>
                             </div>

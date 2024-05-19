@@ -35,7 +35,7 @@ export default function Home() {
         </p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Bone Age vs Chronological Age</h2>
         <p className='text-emerald-900 mt-2'>
-          chronological age differs from bone age, chronological age is defined as the age in years between birth and the evaluation of a subject; bone age is defined by the age expressed in years that corresponds to the level of maturation of bones.
+          Chronological age differs from bone age, chronological age is defined as the age in years between birth and the evaluation of a subject; bone age is defined by the age expressed in years that corresponds to the level of maturation of bones.
         </p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Mental Age and Chronological Age</h2>
         <p className='text-emerald-900 mt-2'>Mental age is a concept related to intelligence. It looks at how a specific individual, at a specific age, performs intellectually, compared to average intellectual performance for that individual&apos;s actual chronological age.</p>
