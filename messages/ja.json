@@ -1,4 +1,8 @@
 {
+  "navbar": {
+    "languageAbbr": "ja",
+    "language": "言語"
+  },
   "calclator": {
     "years": "年",
     "year": "年",

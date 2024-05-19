@@ -1,4 +1,8 @@
 {
+  "navbar": {
+    "languageAbbr": "ko",
+    "language": "언어"
+  },
   "calclator": {
     "years": "년",
     "year": "년",

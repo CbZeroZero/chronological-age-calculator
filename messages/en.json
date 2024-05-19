@@ -1,4 +1,8 @@
 {
+    "navbar": {
+        "languageAbbr": "",
+        "language": "Language"
+    },
     "home": {
         "title": "Chronological Age Calculator | Quick And Accurate",
         "description": "Calculate your chronological age from your date of birth. Find out your age in years, months and days based upon any date",
@@ -22,6 +26,7 @@
         "months": "months",
         "month": "month",
         "days": "days",
+        
         "day": "day",
         "weeks": "weeks",
         "week": "week",

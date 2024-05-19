@@ -1,4 +1,8 @@
 {
+  "navbar": {
+    "languageAbbr": "pt",
+    "language": "Língua"
+  },
   "calclator": {
     "years": "anos",
     "year": "ano",
