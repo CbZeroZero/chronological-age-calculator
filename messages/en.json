@@ -1,1 +1,47 @@
-{}
+{
+    "home": {
+        "title": "Chronological Age Calculator | Quick And Accurate",
+        "description": "Calculate your chronological age from your date of birth. Find out your age in years, months and days based upon any date",
+        "h1": "Chronological Age Calculator",
+        "h2": "What is Chronological Age",
+        "h2Des1": "Chronological age means the age or time elapsed from the time a person is born until the time they are asked their age. It is the measure of age in years, months, and days that one commonly gives when asked their age.",
+        "h2Des2": "While chronological age can&apos;t be reversed, biological/epigenetic age can be.",
+        "h2-2": "How to Calculate Chronological Age",
+        "h2-2Des1": "Chronological age is calculated by taking the difference between the day, month, and year of birth and the day, month, and year of when asked. It is calculated on most psychological tests based on the date the test was taken and the date of birth.",
+        "h2-3": "Biological Age vs Chronological Age",
+        "h2-3Des1": "Chronological age is the number of years you&apos;ve been alive, while biological age refers to how old your cells and tissues are based on physiological evidence.",
+        "h2-3Des2": "Biological age can be younger or older than your chronological age, depending on your lifestyle, genetics, and other factors.",
+        "h2-4": "Bone Age vs Chronological Age",
+        "h2-4Des1": "Bone age is the age of a person&apos;s bone, which can be different from their chronological age. It is determined by taking an X-ray of the left hand and wrist and comparing it to an atlas of bone development.",
+        "h2-5": "Mental Age and Chronological Age",
+        "h2-5Des1": "Mental age is a concept related to intelligence. It looks at how a specific individual, at a specific age, performs intellectually, compared to average intellectual performance for that individual&apos;s actual chronological age."
+    },
+    "calclator": {
+        "years": "years",
+        "year": "year",
+        "months": "months",
+        "month": "month",
+        "days": "days",
+        "day": "day",
+        "weeks": "weeks",
+        "week": "week",
+        "and": "and",
+        "zeroYearOld": "You are 0 year old",
+        "youWere": "You were",
+        "youAre": "You are",
+        "old": "old",
+        "yearResult1": "You were {year} {yearUnit}, {month} {monthUnit} {and} {day} {dayUnit} old",
+        "yearResult2": "You are {year} {yearUnit}, {month} {monthUnit} {and} {day} {dayUnit} old",
+        "dateOfBirth": "Date Of Birth",
+        "today": "Today",
+        "ageOnThisDate": "Age on This Date",
+        "dateErrorHint": "Date of Birth cannot be after the Age on This Date",
+        "calculate": "Calculate",
+        "yourAge": "Your Age",
+        "mothAndDays": "Months & Days:",
+        "montAndDaysResult": "{month} {monthUnit} and {day} {dayUnit}",
+        "weekAndDays": "Weeks & Days:",
+        "weekAndDaysResult": "{week} {weekUnit} and {day} {dayUnit}",
+        "totalDays": "Total Days:"
+    }
+}

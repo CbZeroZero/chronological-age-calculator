@@ -24,9 +24,8 @@ export default async function RootLayout({
           <header>
             <Navbar />
           </header>
+          {children}
         </NextIntlClientProvider>
-
-        {children}
         {
           process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId="G-XPCMFY2EL5" />
         }

@@ -11,9 +11,12 @@ import {
 } from "@/components/ui/select"
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 
 export default function AgeCalculator() {
+    const t = useTranslations("calclator");
+
     const resultDivRef = useRef<HTMLDivElement>(null);
     const [birthMonth, setBirthMonth] = useState<number>(1);
     const [birthDay, setBirthDay] = useState<number>(1);
@@ -190,11 +193,11 @@ export default function AgeCalculator() {
     };
 
     const getAgeString = (years: number, months: number, days: number, isAgeInPast: boolean) => {
-        const yearsSuffix = years > 1 ? 'years' : 'year';
-        const monthsSuffix = months > 1 ? 'months' : 'month';
-        const daysSuffix = days > 1 ? 'days' : 'day';
+        const yearsSuffix = years > 1 ? t('years') : t('year');
+        const monthsSuffix = months > 1 ? t('months') : t('month');
+        const daysSuffix = days > 1 ? t('days') : t('day');
 
-        const prefix = isAgeInPast ? 'You were' : 'You are';
+        const prefix = isAgeInPast ? t('youWere') : t('youAre');
 
         let result = prefix;
 
@@ -211,7 +214,7 @@ export default function AgeCalculator() {
 
         if (days > 0) {
             if (years > 0 && months > 0) {
-                result += ` and ${days} ${daysSuffix}`;
+                result += ` ${t('and')} ${days} ${daysSuffix}`;
             } else if (years > 0 || months > 0) {
                 result += `, ${days} ${daysSuffix}`;
             } else {
@@ -220,22 +223,22 @@ export default function AgeCalculator() {
         }
 
         if (result === prefix) {
-            return `${prefix} 0 year old`;
+            return t('zeroYearOld');
         } else {
-            return result + ' old';
+            return result + ' ' + t('old');
         }
     };
 
     const formatMonths = (months: number) => {
-        return months <= 1 ? 'month' : 'months';
+        return months <= 1 ? t('month') : t('months');
     };
 
     const formatDays = (days: number) => {
-        return days <= 1 ? 'day' : 'days';
+        return days <= 1 ? t('day') : t('days');
     };
 
     const formatWeeks = (weeks: number) => {
-        return weeks <= 1 ? 'week' : 'weeks';
+        return weeks <= 1 ? t('week') : t('weeks');
     };
 
     return (
@@ -263,7 +266,7 @@ export default function AgeCalculator() {
             <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
                 <div className="bg-emerald-200 rounded-lg shadow-lg max-w-md w-full mb-8">
                     <label htmlFor="birthMonth" className="block text-emerald-900 font-bold mb-2 text-left px-8 pt-8">
-                        Date Of Birth
+                        {t('dateOfBirth')}
                     </label>
 
                     <div className="flex justify-between px-8">
@@ -321,13 +324,13 @@ export default function AgeCalculator() {
                         <Button variant="link" className='text-emerald-600 pt-0 m-0'
                             onClick={onSetBirthToday}
                         >
-                            Today
+                            {t('today')}
                         </Button>
                     </div>
 
                     <div className='bg-emerald-300 pt-2 pb-2'>
                         <label htmlFor="birthMonth" className="block text-emerald-900 font-bold mb-2 text-left px-8">
-                            Age on This Date
+                            {t('ageOnThisDate')}
                         </label>
                         <div className="flex justify-between px-8">
                             <div className="w-1/3 mr-2">
@@ -387,14 +390,14 @@ export default function AgeCalculator() {
                         <div className='w-full flex justify-end pr-4'>
                             <Button variant="link" className='text-emerald-600 pt-0 m-0'
                                 onClick={onSetAgeToday}>
-                                Today
+                                {t('today')}
                             </Button>
                         </div>
 
                     </div>
                     {
                         hasError &&
-                        <p className='text-xs text-red-600 text-right mr-8 mt-1'>Date of Birth cannot be after the Age on This Date</p>
+                        <p className='text-xs text-red-600 text-right mr-8 mt-1'>{t('dateErrorHint')}</p>
                     }
                     <div className='flex justify-end w-full'>
                         <Button
@@ -403,14 +406,14 @@ export default function AgeCalculator() {
                             variant="emerald"
                             disabled={hasError}
                         >
-                            Calculate
+                            {t('calculate')}
                         </Button>
                     </div>
                 </div>
             </div>
             {showResult && age && (
                 <>
-                    <h2 className="text-emerald-900	text-2xl font-bold mb-2 mt-12">Your Age</h2>
+                    <h2 className="text-emerald-900	text-2xl font-bold mb-2 mt-12">{t('yourAge')}</h2>
                     <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 py-8 text-center rounded-lg"
                         ref={resultDivRef}
                     >
@@ -422,15 +425,24 @@ export default function AgeCalculator() {
                             </div>
 
                             <div className="grid grid-cols-2">
-                                <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Months & Days:</div>
-                                <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
-                                    {age.totalMonths} {formatMonths(age.totalMonths)} and {age.remainingDaysAfterMonths} {formatDays(age.remainingDaysAfterMonths)}
+                                <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">
+                                    {t('mothAndDays')}
                                 </div>
-                                <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Weeks & Days:</div>
                                 <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
-                                    {age.totalWeeks} {formatWeeks(age.totalWeeks)} and {age.remainingDaysAfterWeeks} {formatDays(age.remainingDaysAfterWeeks)}
+                                    {t('montAndDaysResult', { month: age.totalMonths, monthUnit: formatMonths(age.totalMonths), day: age.remainingDaysAfterMonths, dayUnit: formatDays(age.remainingDaysAfterMonths) })}
+                                    {/* {age.totalMonths} {formatMonths(age.totalMonths)} and {age.remainingDaysAfterMonths} {formatDays(age.remainingDaysAfterMonths)} */}
                                 </div>
-                                <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">Total Days:</div>
+                                <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">
+                                    {t('weekAndDays')}
+                                </div>
+                                <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
+                                    {t('weekAndDaysResult', { week: age.totalWeeks, weekUnit: formatWeeks(age.totalWeeks), day: age.remainingDaysAfterWeeks, dayUnit: formatDays(age.remainingDaysAfterWeeks) })}
+
+                                    {/* {age.totalWeeks} {formatWeeks(age.totalWeeks)} and {age.remainingDaysAfterWeeks} {formatDays(age.remainingDaysAfterWeeks)} */}
+                                </div>
+                                <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">
+                                    {t('totalDays')}
+                                </div>
                                 <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">{age.totalDays} {formatDays(age.totalDays)}</div>
                             </div>
                         </div>
