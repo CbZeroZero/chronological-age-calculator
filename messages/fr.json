@@ -31,5 +31,22 @@
     "weekAndDays": "Semaines et Jours:",
     "weekAndDaysResult": "{week} {weekUnit} et {day} {dayUnit}",
     "totalDays": "Total de Jours:"
+  },
+  "home": {
+    "title": "Calculatrice d'âge chronologique | Rapide et précise",
+    "description": "Calculez votre âge chronologique à partir de votre date de naissance. Découvrez votre âge en années, mois et jours en fonction de n'importe quelle date",
+    "h1": "Calculatrice d'âge chronologique",
+    "h2": "Qu'est-ce que l'âge chronologique",
+    "h2Des1": "L'âge chronologique signifie l'âge ou le temps écoulé depuis la naissance d'une personne jusqu'au moment où on lui demande son âge. C'est la mesure de l'âge en années, mois et jours que l'on donne généralement lorsqu'on vous demande votre âge.",
+    "h2Des2": "Bien que l'âge chronologique ne puisse pas être inversé, l'âge biologique/épigénétique peut l'être.",
+    "h2-2": "Comment calculer l'âge chronologique",
+    "h2-2Des1": "L'âge chronologique est calculé en prenant la différence entre le jour, le mois et l'année de naissance et le jour, le mois et l'année où l'on demande l'âge. Il est calculé dans la plupart des tests psychologiques en fonction de la date à laquelle le test a été effectué et de la date de naissance.",
+    "h2-3": "Âge biologique vs âge chronologique",
+    "h2-3Des1": "L'âge chronologique est le nombre d'années que vous avez vécu, tandis que l'âge biologique fait référence à l'âge de vos cellules et tissus en fonction de preuves physiologiques.",
+    "h2-3Des2": "L'âge biologique peut être plus jeune ou plus vieux que votre âge chronologique, selon votre mode de vie, votre génétique et d'autres facteurs.",
+    "h2-4": "Âge osseux vs âge chronologique",
+    "h2-4Des1": "L'âge osseux est l'âge d'un os d'une personne, qui peut être différent de son âge chronologique. Il est déterminé en prenant une radiographie de la main gauche et du poignet et en la comparant à un atlas du développement osseux.",
+    "h2-5": "Âge mental et âge chronologique",
+    "h2-5Des1": "L'âge mental est un concept lié à l'intelligence. Il examine les performances intellectuelles d'un individu spécifique à un âge spécifique, par rapport aux performances intellectuelles moyennes pour l'âge chronologique réel de cet individu."
   }
 }

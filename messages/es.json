@@ -31,5 +31,22 @@
     "weekAndDays": "Semanas y Días:",
     "weekAndDaysResult": "{week} {weekUnit} y {day} {dayUnit}",
     "totalDays": "Total de Días:"
+  },
+  "home": {
+    "title": "Calculadora de edad cronológica | Rápida y precisa",
+    "description": "Calcula tu edad cronológica a partir de tu fecha de nacimiento. Descubre tu edad en años, meses y días según cualquier fecha",
+    "h1": "Calculadora de edad cronológica",
+    "h2": "¿Qué es la edad cronológica?",
+    "h2Des1": "La edad cronológica es la edad o el tiempo transcurrido desde que una persona nace hasta el momento en que se le pregunta su edad. Es la medida de la edad en años, meses y días que uno da comúnmente cuando se le pregunta su edad.",
+    "h2Des2": "Si bien la edad cronológica no se puede revertir, la edad biológica/epigenética sí puede.",
+    "h2-2": "Cómo calcular la edad cronológica",
+    "h2-2Des1": "La edad cronológica se calcula tomando la diferencia entre el día, mes y año de nacimiento y el día, mes y año en que se le pregunta la edad. Se calcula en la mayoría de las pruebas psicológicas según la fecha en que se realizó la prueba y la fecha de nacimiento.",
+    "h2-3": "Edad biológica vs. edad cronológica",
+    "h2-3Des1": "La edad cronológica es el número de años que has vivido, mientras que la edad biológica se refiere a qué tan envejecidas están tus células y tejidos según las pruebas fisiológicas.",
+    "h2-3Des2": "La edad biológica puede ser menor o mayor que tu edad cronológica, dependiendo de tu estilo de vida, genética y otros factores.",
+    "h2-4": "Edad ósea vs. edad cronológica",
+    "h2-4Des1": "La edad ósea es la edad de los huesos de una persona, que puede ser diferente a su edad cronológica. Se determina tomando una radiografía de la mano y muñeca izquierdas y comparándola con un atlas del desarrollo óseo.",
+    "h2-5": "Edad mental y edad cronológica",
+    "h2-5Des1": "La edad mental es un concepto relacionado con la inteligencia. Considera cómo un individuo específico, a una edad específica, se desempeña intelectualmente en comparación con el desempeño intelectual promedio para su edad cronológica real."
   }
 }

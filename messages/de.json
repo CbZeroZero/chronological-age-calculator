@@ -31,5 +31,22 @@
     "weekAndDays": "Wochen und Tage:",
     "weekAndDaysResult": "{week} {weekUnit} und {day} {dayUnit}",
     "totalDays": "Gesamttage:"
+  },
+  "home": {
+    "title": "Chronologisches Alter Rechner | Schnell und Genau",
+    "description": "Berechnen Sie Ihr chronologisches Alter ab Ihrem Geburtsdatum. Finden Sie heraus, wie alt Sie in Jahren, Monaten und Tagen an einem bestimmten Datum sind",
+    "h1": "Chronologisches Alter Rechner",
+    "h2": "Was ist das chronologische Alter",
+    "h2Des1": "Das chronologische Alter ist das Alter oder die Zeit, die seit der Geburt einer Person vergangen ist, bis zu dem Zeitpunkt, zu dem nach ihrem Alter gefragt wird. Es ist das Alter in Jahren, Monaten und Tagen, das man normalerweise angibt, wenn man nach dem Alter gefragt wird.",
+    "h2Des2": "Während das chronologische Alter nicht umkehrbar ist, kann das biologische/epigenetische Alter es sein.",
+    "h2-2": "Wie man das chronologische Alter berechnet",
+    "h2-2Des1": "Das chronologische Alter wird berechnet, indem die Differenz zwischen dem Tag, Monat und Jahr der Geburt und dem Tag, Monat und Jahr, an dem nach dem Alter gefragt wird, ermittelt wird. Es wird bei den meisten psychologischen Tests anhand des Datums, an dem der Test durchgeführt wurde, und des Geburtsdatums berechnet.",
+    "h2-3": "Biologisches Alter vs. chronologisches Alter",
+    "h2-3Des1": "Das chronologische Alter ist die Anzahl der Jahre, die Sie gelebt haben, während sich das biologische Alter darauf bezieht, wie alt Ihre Zellen und Gewebe auf Grundlage physiologischer Beweise sind.",
+    "h2-3Des2": "Das biologische Alter kann jünger oder älter sein als das chronologische Alter, je nach Lebensstil, Genetik und anderen Faktoren.",
+    "h2-4": "Knochenalter vs. chronologisches Alter",
+    "h2-4Des1": "Das Knochenalter ist das Alter eines Knochens einer Person, das sich vom chronologischen Alter unterscheiden kann. Es wird bestimmt, indem eine Röntgenaufnahme der linken Hand und des Handgelenks angefertigt und mit einem Atlas der Knochenentwicklung verglichen wird.",
+    "h2-5": "Mentales Alter und chronologisches Alter",
+    "h2-5Des1": "Das mentale Alter ist ein Konzept, das mit Intelligenz zusammenhängt. Es betrachtet, wie eine bestimmte Person in einem bestimmten Alter im Vergleich zur durchschnittlichen intellektuellen Leistung für das tatsächliche chronologische Alter dieser Person abschneidet."
   }
 }

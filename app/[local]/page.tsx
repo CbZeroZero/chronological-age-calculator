@@ -1,44 +1,59 @@
 import React from 'react';
 import type { Metadata } from 'next'
+import { siteUrl, generateLanguagesJson } from '@/config';
 import AgeCalculator from '@/components/AgeCalculator';
+import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 
 export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('navbar');
+  const tHome = await getTranslations('home');
+  const currentLanguage = t('languageAbbr');
+  const languageJson = generateLanguagesJson(currentLanguage);
 
-  var canonicalUrl = 'https://www.chronologicalagecalculator.org';
+  var canonicalUrl;
+  if (currentLanguage === '') {
+    canonicalUrl = siteUrl;
+  } else {
+    canonicalUrl = siteUrl + '/' + currentLanguage;
+  }
 
   return {
-    title: 'Chronological Age Calculator | Quick And Accurate',
-    description: 'Calculate your chronological age from your date of birth. Find out your age in years, months and days based upon any date',
+    title: tHome('title'),
+    description: tHome('description'),
     alternates: {
-      canonical: canonicalUrl
+      canonical: canonicalUrl,
+      languages: languageJson.languages
     }
   }
 }
 
 export default function Home() {
+  const t = useTranslations('home');
+
   return (
     <div className="flex flex-col items-center min-h-screen py-2 bg-emerald-50">
       <div className='w-[90%] sm:w-[70%] md:w-[65%] xl:w-[50%]'>
-        <h1 className="text-emerald-900	text-3xl font-bold mb-6 text-left mt-20">Chronological Age Calculator</h1>
+        <h1 className="text-emerald-900	text-3xl font-bold mb-6 text-left mt-20">{t('h1')}</h1>
         <AgeCalculator />
-        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>What is Chronological Age</h2>
-        <p className='text-emerald-900 mt-2'> Chronological age means the age or time elapsed from the time a person is born until the time they are asked their age. It is the measure of age in years, months, and days that one commonly gives when asked their age.</p>
-        <p className='text-emerald-900 mt-2'>While chronological age can&apos;t be reversed, biological/epigenetic age can be.</p>
-        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>How to Calculate Chronological Age</h2>
-        <p className='text-emerald-900 mt-2'>Chronological age is calculated by taking the difference between the day, month, and year of birth and the day, month, and year of when asked. It is calculated on most psychological tests based on the date the test was taken and the date of birth.</p>
-        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Biological Age vs Chronological Age</h2>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2')}</h2>
+        <p className='text-emerald-900 mt-2'>{t('h2Des1')}</p>
+        <p className='text-emerald-900 mt-2'>{t('h2Des2')}</p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-2')}</h2>
+        <p className='text-emerald-900 mt-2'>{t('h2-2Des1')}</p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-3')}</h2>
         <p className='text-emerald-900 mt-2'>
-          Chronological age is the number of years you&apos;ve been alive, while biological age refers to how old your cells and tissues are based on physiological evidence.
+          {t('h2-3Des1')}
         </p>
         <p className='text-emerald-900 mt-2'>
-          If you&apos;re especially healthy and fit for your age, your biological age may well be lower than your chronological age. But if you&apos;re sedentary, chronically ill, or in poor physical condition, your biological age may be higher.
+          {t('h2-3Des2')}
         </p>
-        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Bone Age vs Chronological Age</h2>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-4')}</h2>
         <p className='text-emerald-900 mt-2'>
-          Chronological age differs from bone age, chronological age is defined as the age in years between birth and the evaluation of a subject; bone age is defined by the age expressed in years that corresponds to the level of maturation of bones.
+          {t('h2-4Des1')}
         </p>
-        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>Mental Age and Chronological Age</h2>
-        <p className='text-emerald-900 mt-2'>Mental age is a concept related to intelligence. It looks at how a specific individual, at a specific age, performs intellectually, compared to average intellectual performance for that individual&apos;s actual chronological age.</p>
+        <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-5')}</h2>
+        <p className='text-emerald-900 mt-2'>{t('h2-5Des1')}</p>
       </div>
 
     </div>

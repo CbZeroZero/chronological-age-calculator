@@ -31,5 +31,22 @@
     "weekAndDays": "Settimane e Giorni:",
     "weekAndDaysResult": "{week} {weekUnit} e {day} {dayUnit}",
     "totalDays": "Totale Giorni:"
+  },
+  "home": {
+    "title": "Calcolatore dell'Età Cronologica | Rapido e Preciso",
+    "description": "Calcola la tua età cronologica dalla tua data di nascita. Scopri la tua età in anni, mesi e giorni sulla base di qualsiasi data",
+    "h1": "Calcolatore dell'Età Cronologica",
+    "h2": "Che cos'è l'Età Cronologica",
+    "h2Des1": "L'età cronologica significa l'età o il tempo trascorso dal momento in cui una persona nasce fino al momento in cui le viene chiesta l'età. È la misura dell'età in anni, mesi e giorni che si dà comunemente quando ci viene chiesto l'età.",
+    "h2Des2": "Mentre l'età cronologica non può essere invertita, l'età biologica/epigenetica può esserlo.",
+    "h2-2": "Come Calcolare l'Età Cronologica",
+    "h2-2Des1": "L'età cronologica viene calcolata prendendo la differenza tra il giorno, il mese e l'anno di nascita e il giorno, il mese e l'anno in cui viene chiesta. Viene calcolata nella maggior parte dei test psicologici in base alla data in cui il test è stato eseguito e alla data di nascita.",
+    "h2-3": "Età Biologica vs Età Cronologica",
+    "h2-3Des1": "L'età cronologica è il numero di anni che sei stato vivo, mentre l'età biologica si riferisce a quanto sono vecchie le tue cellule e i tuoi tessuti in base alle prove fisiologiche.",
+    "h2-3Des2": "L'età biologica può essere più giovane o più vecchia della tua età cronologica, a seconda del tuo stile di vita, della genetica e di altri fattori.",
+    "h2-4": "Età Ossea vs Età Cronologica",
+    "h2-4Des1": "L'età ossea è l'età delle ossa di una persona, che può essere diversa dalla sua età cronologica. Viene determinata facendo una radiografia della mano e del polso sinistri e confrontandola con un atlante dello sviluppo osseo.",
+    "h2-5": "Età Mentale ed Età Cronologica",
+    "h2-5Des1": "L'età mentale è un concetto legato all'intelligenza. Esamina come un individuo specifico, a un'età specifica, si comporta intellettualmente, rispetto alla prestazione intellettuale media per l'effettiva età cronologica di quell'individuo."
   }
 }
