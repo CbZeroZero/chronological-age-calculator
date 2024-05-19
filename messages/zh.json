@@ -1,0 +1,31 @@
+{
+  "calclator": {
+    "years": "年",
+    "year": "年",
+    "months": "月",
+    "month": "月",
+    "days": "天",
+    "day": "天",
+    "weeks": "周",
+    "week": "周",
+    "and": "",
+    "zeroYearOld": "你 0 岁",
+    "old": "岁",
+    "is": "你的年龄是",
+    "was": "你的年龄是",
+    "yearResult1": "你的年龄是 12 年，12 个月 3 天",
+    "yearResult2": "你的年龄是 12 年，12 个月 3 天",
+    "yearResult3": "你的年龄是 1 年，1 个月 1 天",
+    "dateOfBirth": "出生日期",
+    "today": "今天",
+    "ageOnThisDate": "此日期的年龄",
+    "dateErrorHint": "出生日期不能晚于此日期的年龄",
+    "calculate": "计算",
+    "yourAge": "你的年龄",
+    "monthAndDays": "月和天:",
+    "monthAndDaysResult": "{month} {monthUnit} {day} {dayUnit}",
+    "weekAndDays": "周和天:",
+    "weekAndDaysResult": "{week} {weekUnit} {day} {dayUnit}",
+    "totalDays": "总天数:"
+  }
+}

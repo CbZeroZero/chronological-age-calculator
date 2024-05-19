@@ -197,7 +197,7 @@ export default function AgeCalculator() {
         const monthsSuffix = months > 1 ? t('months') : t('month');
         const daysSuffix = days > 1 ? t('days') : t('day');
 
-        const prefix = isAgeInPast ? t('youWere') : t('youAre');
+        const prefix = isAgeInPast ? t('was') : t('is');
 
         let result = prefix;
 
@@ -225,7 +225,7 @@ export default function AgeCalculator() {
         if (result === prefix) {
             return t('zeroYearOld');
         } else {
-            return result + ' ' + t('old');
+            return result;
         }
     };
 
@@ -426,11 +426,10 @@ export default function AgeCalculator() {
 
                             <div className="grid grid-cols-2">
                                 <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">
-                                    {t('mothAndDays')}
+                                    {t('monthAndDays')}
                                 </div>
                                 <div className="text-emerald-900 text-sm text-right bg-emerald-100 p-2 rounded-r-xl border border-stone-50">
-                                    {t('montAndDaysResult', { month: age.totalMonths, monthUnit: formatMonths(age.totalMonths), day: age.remainingDaysAfterMonths, dayUnit: formatDays(age.remainingDaysAfterMonths) })}
-                                    {/* {age.totalMonths} {formatMonths(age.totalMonths)} and {age.remainingDaysAfterMonths} {formatDays(age.remainingDaysAfterMonths)} */}
+                                    {t('monthAndDaysResult', { month: age.totalMonths, monthUnit: formatMonths(age.totalMonths), day: age.remainingDaysAfterMonths, dayUnit: formatDays(age.remainingDaysAfterMonths) })}
                                 </div>
                                 <div className="flex items-center text-emerald-900 text-sm text-left font-bold bg-emerald-300 p-2 rounded-l-xl border border-stone-50">
                                     {t('weekAndDays')}

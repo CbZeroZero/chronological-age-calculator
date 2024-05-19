@@ -1,0 +1,31 @@
+{
+  "calclator": {
+    "years": "年",
+    "year": "年",
+    "months": "月",
+    "month": "月",
+    "days": "日",
+    "day": "日",
+    "weeks": "週間",
+    "week": "週",
+    "and": "と",
+    "zeroYearOld": "あなたは 0 歳です",
+    "old": "歳",
+    "is": "あなたの年齢は",
+    "was": "あなたの年齢は",
+    "yearResult1": "あなたの年齢は 12 年、12 ヶ月と 3 日です",
+    "yearResult2": "あなたの年齢は 12 年、12 ヶ月と 3 日でした",
+    "yearResult3": "あなたの年齢は 1 年、1 ヶ月と 1 日です",
+    "dateOfBirth": "生年月日",
+    "today": "今日",
+    "ageOnThisDate": "この日の年齢",
+    "dateErrorHint": "生年月日はこの日の年齢より後になることはできません",
+    "calculate": "計算する",
+    "yourAge": "あなたの年齢",
+    "monthAndDays": "月と日:",
+    "monthAndDaysResult": "{month} {monthUnit}と {day} {dayUnit}",
+    "weekAndDays": "週間と日:",
+    "weekAndDaysResult": "{week} {weekUnit}と {day} {dayUnit}",
+    "totalDays": "総日数:"
+  }
+}

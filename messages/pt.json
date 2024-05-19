@@ -1,0 +1,31 @@
+{
+  "calclator": {
+    "years": "anos",
+    "year": "ano",
+    "months": "meses",
+    "month": "mês",
+    "days": "dias",
+    "day": "dia",
+    "weeks": "semanas",
+    "week": "semana",
+    "and": "e",
+    "zeroYearOld": "Você tem 0 anos",
+    "old": "anos",
+    "is": "Sua idade é",
+    "was": "Sua idade era",
+    "yearResult1": "Sua idade é 12 anos, 12 meses e 3 dias",
+    "yearResult2": "Sua idade era 12 anos, 12 meses e 3 dias",
+    "yearResult3": "Sua idade é 1 ano, 1 mês e 1 dia",
+    "dateOfBirth": "Data de Nascimento",
+    "today": "Hoje",
+    "ageOnThisDate": "Idade nesta Data",
+    "dateErrorHint": "A data de nascimento não pode ser posterior à idade nesta data",
+    "calculate": "Calcular",
+    "yourAge": "Sua Idade",
+    "monthAndDays": "Meses e Dias:",
+    "monthAndDaysResult": "{month} {monthUnit} e {day} {dayUnit}",
+    "weekAndDays": "Semanas e Dias:",
+    "weekAndDaysResult": "{week} {weekUnit} e {day} {dayUnit}",
+    "totalDays": "Total de Dias:"
+  }
+}

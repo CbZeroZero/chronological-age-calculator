@@ -1,0 +1,31 @@
+{
+  "calclator": {
+    "years": "년",
+    "year": "년",
+    "months": "개월",
+    "month": "개월",
+    "days": "일",
+    "day": "일",
+    "weeks": "주",
+    "week": "주",
+    "and": "그리고",
+    "zeroYearOld": "당신은 0살입니다",
+    "old": "살",
+    "is": "당신의 나이는",
+    "was": "당신의 나이는",
+    "yearResult1": "당신의 나이는 12년, 12개월 그리고 3일입니다",
+    "yearResult2": "당신의 나이는 12년, 12개월 그리고 3일이었습니다",
+    "yearResult3": "당신의 나이는 1년, 1개월 그리고 1일입니다",
+    "dateOfBirth": "생년월일",
+    "today": "오늘",
+    "ageOnThisDate": "이 날짜의 나이",
+    "dateErrorHint": "생년월일은 이 날짜의 나이보다 늦을 수 없습니다",
+    "calculate": "계산하다",
+    "yourAge": "당신의 나이",
+    "monthAndDays": "개월 및 일:",
+    "monthAndDaysResult": "{month} {monthUnit} 및 {day} {dayUnit}",
+    "weekAndDays": "주 및 일:",
+    "weekAndDaysResult": "{week} {weekUnit} 및 {day} {dayUnit}",
+    "totalDays": "총 일수:"
+  }
+}
