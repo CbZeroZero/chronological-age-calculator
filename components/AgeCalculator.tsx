@@ -242,26 +242,6 @@ export default function AgeCalculator() {
     };
 
     return (
-        /**
-         * 西班牙语：Calculadora de Edad Cronológica
-         * 葡萄牙语：Calculadora de Idade Cronológica
-         * 日语：年齢計算機 
-         * 德语：Chronologischer Altersrechner
-         * 法语
-         * 意大利
-         * 旁遮普语：ਕ੍ਰਮਿਕ ਉਮਰ ਕੈਲਕੁਲੇਟਰ
-         * 韩语：연령 계산기
-         * 
-         * 年龄计算器也可以有页面，多语言竞争低
-         * 
-         * What is chronological age?
-         * How to calculate chronological age
-         * biological age vs chronological age
-         * bone age vs chronological age
-         * mental age and chronological age
-         * chronological age meaning
-         */
-
         <>
             <div className="bg-emerald-100 flex flex-col items-center w-full flex-1 pt-10 text-center rounded-lg">
                 <div className="bg-emerald-200 rounded-lg shadow-lg max-w-md w-full mb-8">
@@ -299,7 +279,7 @@ export default function AgeCalculator() {
                                     <SelectValue placeholder={birthDay.toString()} />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <div className='grid grid-cols-5'>
+                                    <div className='grid grid-cols-4'>
                                         {Array.from({ length: getDaysInMonth(birthYear, birthMonth) }, (_, i) => (
                                             <SelectItem key={i + 1} value={(i + 1).toString()}>
                                                 {i + 1}
@@ -314,6 +294,8 @@ export default function AgeCalculator() {
                                 type="number"
                                 id="birthYear"
                                 value={birthYear}
+                                min={1}
+                                max={9999}
                                 onChange={(e) => {
                                     onBirthYearChange(e.target.value);
                                 }}
@@ -364,7 +346,7 @@ export default function AgeCalculator() {
                                         <SelectValue placeholder={ageDay.toString()} />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <div className='grid grid-cols-5'>
+                                        <div className='grid grid-cols-4'>
                                             {Array.from({ length: getDaysInMonth(ageYear, ageMonth) }, (_, i) => (
                                                 <SelectItem key={i + 1} value={(i + 1).toString()}>
                                                     {i + 1}
