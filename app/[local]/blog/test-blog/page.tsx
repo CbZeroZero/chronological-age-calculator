@@ -7,7 +7,7 @@ import BlogContent from '@/components/BlogContent';
 const Home = () => {
     return (
         <>
-            <div className="container mx-auto p-4 flex flex-col xl:flex-row">
+            <div className="bg-emerald-50 mx-auto p-4 flex flex-col xl:flex-row">
                 <Sidebar />
                 <main id="blog-content" className="w-full xl:flex-grow p-8 overflow-y-auto bg-white shadow">
                     <BlogContent />
