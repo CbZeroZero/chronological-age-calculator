@@ -11,7 +11,7 @@ interface Subheading {
     text: string;
 }
 
-const TableOfContents = () => {
+export default function TableOfContents() {
     const [activeId, setActiveId] = useState('');
     const [isBottomAligned, setIsBottomAligned] = useState(false);
     const [headings, setHeadings] = useState<Heading[]>([]);
@@ -19,7 +19,7 @@ const TableOfContents = () => {
     useEffect(() => {
         const blogContent = document.getElementById('blog-content');
         if (blogContent) {
-            const headingElements = blogContent.querySelectorAll('h1, h2');
+            const headingElements = blogContent.querySelectorAll('h2, h3');
             const headingsArray: Heading[] = [];
             let currentH1: Heading | null = null;
 
@@ -27,10 +27,10 @@ const TableOfContents = () => {
                 const id = heading.id;
                 const text = heading.textContent ?? '';
 
-                if (heading.tagName === 'H1') {
+                if (heading.tagName === 'H2') {
                     currentH1 = { id, text, subheadings: [] };
                     headingsArray.push(currentH1);
-                } else if (heading.tagName === 'H2' && currentH1) {
+                } else if (heading.tagName === 'H3' && currentH1) {
                     const subheading: Subheading = { id, text };
                     currentH1.subheadings.push(subheading);
                 }
@@ -88,36 +88,36 @@ const TableOfContents = () => {
     };
 
     return (
-        <div id="toc" className={`xl:w-72 w-full p-4 ${isBottomAligned ? '' : 'xl:sticky xl:top-0 h-auto'}`}>
-            <h2 className="text-lg font-bold mb-2">Table of Contents</h2>
-            <ul className="space-y-2">
-                {headings.map((heading) => (
-                    <li key={heading.id} className="mb-2">
-                        <a href={`#${heading.id}`}
-                            className="text-blue-500"
-                            onClick={(e) => { e.preventDefault(); handleClick(`${heading.id}`); }}
-                        >
-                            {heading.text}
-                        </a>
-                        {heading.subheadings.length > 0 && (
-                            <ul className="ml-4">
-                                {heading.subheadings.map((subheading) => (
-                                    <li key={subheading.id} className="mb-2">
-                                        <a href={`#${subheading.id}`}
-                                            className="text-blue-500"
-                                            onClick={(e) => { e.preventDefault(); handleClick(`${subheading.id}`); }}
-                                        >
-                                            {subheading.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </div >
+        <aside className='bg-emerald-100 shadow h-auto'>
+            <div id="toc" className={`xl:w-64 w-full p-4 ${isBottomAligned ? '' : 'xl:sticky xl:top-0 h-auto'}`}>
+                <h2 className="text-emerald-800 text-lg font-bold mb-2">Table of Contents</h2>
+                <ul className="space-y-2 ml-4">
+                    {headings.map((heading) => (
+                        <li key={heading.id} className="mb-2">
+                            <a href={`#${heading.id}`}
+                                className="text-emerald-700"
+                                onClick={(e) => { e.preventDefault(); handleClick(`${heading.id}`); }}
+                            >
+                                {heading.text}
+                            </a>
+                            {heading.subheadings.length > 0 && (
+                                <ul className="ml-4 mt-2">
+                                    {heading.subheadings.map((subheading) => (
+                                        <li key={subheading.id} className="mb-2">
+                                            <a href={`#${subheading.id}`}
+                                                className="text-emerald-700"
+                                                onClick={(e) => { e.preventDefault(); handleClick(`${subheading.id}`); }}
+                                            >
+                                                {subheading.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div >
+        </aside>
     );
 };
-
-export default TableOfContents;
