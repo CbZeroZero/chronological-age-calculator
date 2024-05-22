@@ -1,11 +1,11 @@
 const BlogContent = () => {
     return (
         <div className="prose prose-lg max-w-none">
-            <h1 id='blog-title'>Blog Title</h1>
-            <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
-            <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
-            <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
-            <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
+            <h1 id='blog-title' className="text-2xl font-bold py-2">Blog Title</h1>
+            <p className="pt-3 font-serif">This is a paragraph in the blog. It contains some interesting content about various topics.</p>
+            <p className="pt-3 font-serif">This is a paragraph in the blog. It contains some interesting content about various topics.</p>
+            <p className="pt-3 font-serif">This is a paragraph in the blog. It contains some interesting content about various topics.</p>
+            <p className="pt-3 font-serif">This is a paragraph in the blog. It contains some interesting content about various topics.</p>
             <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
             <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
             <p>This is a paragraph in the blog. It contains some interesting content about various topics.</p>
@@ -107,7 +107,7 @@ const BlogContent = () => {
             <p>This subsection goes even deeper into the third section.</p>
             <p>This subsection goes even deeper into the third section.</p>
             <p>This subsection goes even deeper into the third section.</p>
-        </div>
+        </div >
     );
 };
 

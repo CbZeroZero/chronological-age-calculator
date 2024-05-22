@@ -88,14 +88,14 @@ export default function TableOfContents() {
     };
 
     return (
-        <aside className='xl:bg-emerald-100 xl:shadow h-auto'>
+        <aside className='bg-emerald-100 xl:shadow xl:mr-4 rounded-xl h-auto'>
             <div id="toc" className={`xl:w-64 w-auto p-4 ${isBottomAligned ? '' : 'xl:sticky xl:top-0 h-auto'}`}>
                 <h2 className="text-emerald-800 text-lg font-bold mb-2">Table of Contents</h2>
                 <ul className="space-y-2 ml-4">
                     {headings.map((heading) => (
                         <li key={heading.id} className="mb-2">
                             <a href={`#${heading.id}`}
-                                className="text-emerald-700"
+                                className={`text-emerald-700 ${activeId === heading.id ? 'underline font-bold' : ""}`}
                                 onClick={(e) => { e.preventDefault(); handleClick(`${heading.id}`); }}
                             >
                                 {heading.text}
@@ -105,7 +105,7 @@ export default function TableOfContents() {
                                     {heading.subheadings.map((subheading) => (
                                         <li key={subheading.id} className="mb-2">
                                             <a href={`#${subheading.id}`}
-                                                className="text-emerald-700"
+                                                className={`text-emerald-700 ${activeId === heading.id ? 'underline font-bold' : ""}`}
                                                 onClick={(e) => { e.preventDefault(); handleClick(`${subheading.id}`); }}
                                             >
                                                 {subheading.text}
