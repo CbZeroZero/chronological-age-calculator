@@ -88,8 +88,8 @@ export default function TableOfContents() {
     };
 
     return (
-        <aside className='bg-emerald-100 shadow h-auto'>
-            <div id="toc" className={`xl:w-64 w-full p-4 ${isBottomAligned ? '' : 'xl:sticky xl:top-0 h-auto'}`}>
+        <aside className='xl:bg-emerald-100 xl:shadow h-auto'>
+            <div id="toc" className={`xl:w-64 w-auto p-4 ${isBottomAligned ? '' : 'xl:sticky xl:top-0 h-auto'}`}>
                 <h2 className="text-emerald-800 text-lg font-bold mb-2">Table of Contents</h2>
                 <ul className="space-y-2 ml-4">
                     {headings.map((heading) => (
