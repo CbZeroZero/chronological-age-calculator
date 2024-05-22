@@ -32,7 +32,7 @@ const Home = () => {
                             <p className="pt-3 font-serif pl-4">Current day is earlier than the birth day, So Day difference: (5 + 31) - 15 = 21 days</p>
                             <p className="pt-3 font-serif">Thus, the chronological age is 24 years, and 21 days.</p>
                             <h2 id="section-3" className='text-xl font-bold pt-8'>Expressing Chronological Age in Days</h2>
-                            <p className="pt-3 font-serif">Calculating one's chronological age in days may seem simple, but to pinpoint the exact number of days requires more meticulous contemplation. Allow me to break down this calculation process step by step:</p>
+                            <p className="pt-3 font-serif">Calculating one&#39;s chronological age in days may seem simple, but to pinpoint the exact number of days requires more meticulous contemplation. Allow me to break down this calculation process step by step:</p>
                             <p className="pt-3 font-serif pl-4">1. Identify the birth year and the current year. In this case, the birth year is 2000, and the current year is 2024.</p>
                             <p className="pt-3 font-serif pl-4">2. Calculate the number of complete years between the birth year and the current year. 2024 minus 2000 yields 23 years.</p>
                             <p className="pt-3 font-serif pl-4">3. Determine the number of days in these 23 years, accounting for leap years and non-leap years. 2004, 2008, 2012, 2016, and 2020 were leap years, each contributing 366 days, totaling 1,830 days. The remaining 18 non-leap years, each with 365 days, amount to 6,570 days. Adding these together, the total number of days in the 23 years is 8,400 days.</p>
