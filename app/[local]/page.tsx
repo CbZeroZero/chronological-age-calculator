@@ -43,7 +43,7 @@ export default function Home() {
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-2')}</h2>
         <p className='text-emerald-900 mt-2'>{t('h2-2Des1')}&nbsp;
           <Link href="/blog/how-to-calculate-chronological-age" className="text-emerald-900 hover:text-emerald-950 underline">
-            See More&#62;&#62;
+            {t('seeMore')}&#62;&#62;
           </Link>
         </p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-3')}</h2>
