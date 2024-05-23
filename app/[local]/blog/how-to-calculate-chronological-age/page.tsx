@@ -14,8 +14,10 @@ const Home = () => {
                         <div className="prose prose-lg max-w-none">
                             <h2 id="section-1" className='text-xl font-bold'>What is Chronological Age?</h2>
                             <p className="pt-3 font-serif">Chronological age is simply the number of years, months, and days that have passed since a person&#39;s birth. It is commonly used to determine eligibility for services, developmental assessments, and demographic studies.</p>
-                            <p className="pt-3 font-serif">You can just click the button below to effortlessly determine your precise chronological age.</p>
-                            <JumpCalculatePageButton text='Calculate Chronological Age' />
+                            <p className="pt-3 font-serif">You can just click the button below to calculate your chronological age.</p>
+                            <div className='pt-2'>
+                                <JumpCalculatePageButton text='Calculate Chronological Age' />
+                            </div>
                             <h2 id="section-2" className='text-xl font-bold pt-3'>Expressing Chronological Age in Years and Months</h2>
                             <p className="pt-3 font-serif">To accurately calculate chronological age, you need the exact birth date and the current date. The steps are:</p>
                             <ul className="pl-8 list-decimal">
