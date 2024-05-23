@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next'
+import Link from 'next/link';
 import { siteUrl, generateLanguagesJson } from '@/config';
 import AgeCalculator from '@/components/AgeCalculator';
 import { getTranslations } from 'next-intl/server';
@@ -40,7 +41,11 @@ export default function Home() {
         <p className='text-emerald-900 mt-2'>{t('h2Des1')}</p>
         <p className='text-emerald-900 mt-2'>{t('h2Des2')}</p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-2')}</h2>
-        <p className='text-emerald-900 mt-2'>{t('h2-2Des1')}</p>
+        <p className='text-emerald-900 mt-2'>{t('h2-2Des1')}&nbsp;
+          <Link href="/blog/how-to-calculate-chronological-age" className="text-emerald-900 hover:text-emerald-950 underline">
+            See More&#62;&#62;
+          </Link>
+        </p>
         <h2 className='text-emerald-900	text-2xl font-bold text-left mt-12'>{t('h2-3')}</h2>
         <p className='text-emerald-900 mt-2'>
           {t('h2-3Des1')}
