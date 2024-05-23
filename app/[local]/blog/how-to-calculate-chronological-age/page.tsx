@@ -1,6 +1,32 @@
 import TableOfContents from '@/components/TableOfContents';
 import JumpCalculatePageButton from '@/components/JumpToCalculatePage';
+import { siteUrl, generateLanguagesJson } from '@/config';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('navbar');
+    const tHome = await getTranslations('howToCalculateChronoAge');
+    const currentLanguage = t('languageAbbr');
+    const languageJson = generateLanguagesJson(currentLanguage);
+
+    var canonicalUrl;
+    if (currentLanguage === '') {
+        canonicalUrl = siteUrl + "/blog/how-to-calculate-chronological-age";
+    } else {
+        canonicalUrl = siteUrl + '/' + currentLanguage + "/blog/how-to-calculate-chronological-age";
+    }
+
+    return {
+        title: tHome('howTo'),
+        description: tHome('description'),
+        alternates: {
+            canonical: canonicalUrl,
+            languages: languageJson.languages
+        }
+    }
+}
 
 const Home = () => {
     const t = useTranslations('howToCalculateChronoAge');

@@ -89,6 +89,8 @@
     "tryOurCalculator": "Experimente Nosso Prático Calculador de Idade Online",
     "tryOurCalculatorDes": "Embora os passos acima permitam calcular sua idade cronológica manualmente, recomendo experimentar nosso calculador de idade online fácil de usar para uma experiência mais conveniente. Basta inserir sua data de nascimento, e nossa ferramenta fornecerá instantaneamente sua idade em anos, meses e dias.",
     "tryOurCalculatorDes1": "Clique no botão abaixo para experimentá-lo e determinar facilmente sua idade cronológica precisa.",
-    "calculateMyAge": "Calcular Minha Idade"
+    "calculateMyAge": "Calcular Minha Idade",
+    "description": "Aprenda a calcular a idade cronológica de forma rápida e precisa. Obtenha instruções passo a passo e ferramentas práticas para um cálculo preciso da idade.",
+    "tableOfContents": "Índice"
   }
 }

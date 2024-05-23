@@ -89,6 +89,8 @@
     "tryOurCalculator": "Pruebe nuestro conveniente calculador de edad en línea",
     "tryOurCalculatorDes": "Mientras que los pasos anteriores le permiten calcular su edad cronológica manualmente, le recomiendo probar nuestro calculador de edad en línea fácil de usar para una experiencia más conveniente. Simplemente ingrese su fecha de nacimiento y nuestra herramienta le proporcionará instantáneamente su edad en años, meses y días.",
     "tryOurCalculatorDes1": "Haga clic en el botón a continuación para probarlo y determinar sin esfuerzo su edad cronológica precisa.",
-    "calculateMyAge": "Calcular mi edad"
+    "calculateMyAge": "Calcular mi edad",
+    "description": "Aprende a calcular la edad cronológica de manera rápida y precisa. Obtén instrucciones paso a paso y herramientas útiles para un cálculo preciso de la edad.",
+    "tableOfContents": "Tabla de Contenidos"
   }
 }

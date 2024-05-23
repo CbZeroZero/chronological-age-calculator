@@ -89,6 +89,8 @@
     "tryOurCalculator": "试试我们的方便在线年龄计算器",
     "tryOurCalculatorDes": "虽然上述步骤可以让您手动计算您的实际年龄，但我建议您试试我们用户友好的在线年龄计算器，以获得更便捷的体验。只需输入您的出生日期，我们的工具将立即提供您的年龄，以年、月和天为单位。",
     "tryOurCalculatorDes1": "点击下面的按钮试一试，轻松确定您的准确实际年龄。",
-    "calculateMyAge": "计算我的年龄"
+    "calculateMyAge": "计算我的年龄",
+    "description": "学习如何快速准确地计算年龄。获取逐步说明和便捷工具以精确计算年龄。",
+    "tableOfContents": "目录"
   }
 }

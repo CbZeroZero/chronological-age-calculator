@@ -89,6 +89,8 @@
     "tryOurCalculator": "Essayez notre calculateur d'âge en ligne pratique",
     "tryOurCalculatorDes": "Bien que les étapes ci-dessus vous permettent de calculer manuellement votre âge chronologique, je vous recommande d'essayer notre calculateur d'âge en ligne convivial pour une expérience plus pratique. Il vous suffit d'entrer votre date de naissance, et notre outil vous fournira instantanément votre âge en années, mois et jours.",
     "tryOurCalculatorDes1": "Cliquez sur le bouton ci-dessous pour l'essayer et déterminer facilement votre âge chronologique précis.",
-    "calculateMyAge": "Calculer mon âge"
+    "calculateMyAge": "Calculer mon âge",
+    "description": "Apprenez à calculer l'âge chronologique rapidement et précisément. Obtenez des instructions étape par étape et des outils pratiques pour un calcul précis de l'âge.",
+    "tableOfContents": "Table des Matières"
   }
 }
