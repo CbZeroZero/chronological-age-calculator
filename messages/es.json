@@ -30,7 +30,19 @@
     "monthAndDaysResult": "{month} {monthUnit} y {day} {dayUnit}",
     "weekAndDays": "Semanas y Días:",
     "weekAndDaysResult": "{week} {weekUnit} y {day} {dayUnit}",
-    "totalDays": "Total de Días:"
+    "totalDays": "Total de Días:",
+    "january": "enero",
+    "february": "febrero",
+    "march": "marzo",
+    "april": "abril",
+    "may": "mayo",
+    "june": "junio",
+    "july": "julio",
+    "august": "agosto",
+    "september": "septiembre",
+    "october": "octubre",
+    "november": "noviembre",
+    "december": "diciembre"
   },
   "home": {
     "title": "Calculadora de edad cronológica | Rápida y precisa",

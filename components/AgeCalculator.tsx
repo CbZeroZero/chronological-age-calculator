@@ -262,9 +262,18 @@ export default function AgeCalculator() {
 
                                 <SelectContent>
                                     <div className='grid grid-cols-3'>
-                                        {Array.from({ length: 12 }, (_, i) => (
-                                            <SelectItem key={i + 1} value={(i + 1).toString()}>{new Date(0, i).toLocaleString('default', { month: 'long' })}</SelectItem>
-                                        ))}
+                                        <SelectItem key={1} value={(1).toString()}>{t('january')}</SelectItem>
+                                        <SelectItem key={2} value={(2).toString()}>{t('february')}</SelectItem>
+                                        <SelectItem key={3} value={(3).toString()}>{t('march')}</SelectItem>
+                                        <SelectItem key={4} value={(4).toString()}>{t('april')}</SelectItem>
+                                        <SelectItem key={5} value={(5).toString()}>{t('may')}</SelectItem>
+                                        <SelectItem key={6} value={(6).toString()}>{t('june')}</SelectItem>
+                                        <SelectItem key={7} value={(7).toString()}>{t('july')}</SelectItem>
+                                        <SelectItem key={8} value={(8).toString()}>{t('august')}</SelectItem>
+                                        <SelectItem key={9} value={(9).toString()}>{t('september')}</SelectItem>
+                                        <SelectItem key={10} value={(10).toString()}>{t('october')}</SelectItem>
+                                        <SelectItem key={11} value={(11).toString()}>{t('november')}</SelectItem>
+                                        <SelectItem key={12} value={(12).toString()}>{t('december')}</SelectItem>
                                     </div>
                                 </SelectContent>
                             </Select>
@@ -326,11 +335,18 @@ export default function AgeCalculator() {
                                     </SelectTrigger>
                                     <SelectContent>
                                         <div className='grid grid-cols-3'>
-                                            {Array.from({ length: 12 }, (_, i) => (
-                                                <SelectItem key={i + 1} value={(i + 1).toString()}>
-                                                    {new Date(0, i).toLocaleString('default', { month: 'long' })}
-                                                </SelectItem>
-                                            ))}
+                                            <SelectItem key={1} value={(1).toString()}>{t('january')}</SelectItem>
+                                            <SelectItem key={2} value={(2).toString()}>{t('february')}</SelectItem>
+                                            <SelectItem key={3} value={(3).toString()}>{t('march')}</SelectItem>
+                                            <SelectItem key={4} value={(4).toString()}>{t('april')}</SelectItem>
+                                            <SelectItem key={5} value={(5).toString()}>{t('may')}</SelectItem>
+                                            <SelectItem key={6} value={(6).toString()}>{t('june')}</SelectItem>
+                                            <SelectItem key={7} value={(7).toString()}>{t('july')}</SelectItem>
+                                            <SelectItem key={8} value={(8).toString()}>{t('august')}</SelectItem>
+                                            <SelectItem key={9} value={(9).toString()}>{t('september')}</SelectItem>
+                                            <SelectItem key={10} value={(10).toString()}>{t('october')}</SelectItem>
+                                            <SelectItem key={11} value={(11).toString()}>{t('november')}</SelectItem>
+                                            <SelectItem key={12} value={(12).toString()}>{t('december')}</SelectItem>
                                         </div>
                                     </SelectContent>
                                 </Select>

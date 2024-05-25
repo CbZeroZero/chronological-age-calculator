@@ -30,7 +30,19 @@
     "monthAndDaysResult": "{month} {monthUnit} 및 {day} {dayUnit}",
     "weekAndDays": "주 및 일:",
     "weekAndDaysResult": "{week} {weekUnit} 및 {day} {dayUnit}",
-    "totalDays": "총 일수:"
+    "totalDays": "총 일수:",
+    "january": "1월",
+    "february": "2월",
+    "march": "3월",
+    "april": "4월",
+    "may": "5월",
+    "june": "6월",
+    "july": "7월",
+    "august": "8월",
+    "september": "9월",
+    "october": "10월",
+    "november": "11월",
+    "december": "12월"
   },
   "home": {
     "title": "연령 계산기 | 빠르고 정확한",

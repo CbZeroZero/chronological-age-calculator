@@ -45,7 +45,19 @@
         "monthAndDaysResult": "{month} {monthUnit} and {day} {dayUnit}",
         "weekAndDays": "Weeks & Days:",
         "weekAndDaysResult": "{week} {weekUnit} and {day} {dayUnit}",
-        "totalDays": "Total Days:"
+        "totalDays": "Total Days:",
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
     },
     "howToCalculateChronoAge": {
         "description": "Learn how to calculate chronological age quickly and accurately. Get step-by-step instructions and handy tools for precise age calculation.",

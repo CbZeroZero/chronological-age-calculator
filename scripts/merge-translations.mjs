@@ -35,41 +35,122 @@ function mergeMessages(messages, parentNode = '') {
 const inputMessages =
 {
   "zh": {
-    "description": "学习如何快速准确地计算年龄。获取逐步说明和便捷工具以精确计算年龄。",
-    "tableOfContents": "目录"
+    "january": "一月",
+    "february": "二月",
+    "march": "三月",
+    "april": "四月",
+    "may": "五月",
+    "june": "六月",
+    "july": "七月",
+    "august": "八月",
+    "september": "九月",
+    "october": "十月",
+    "november": "十一月",
+    "december": "十二月"
   },
   "es": {
-    "description": "Aprende a calcular la edad cronológica de manera rápida y precisa. Obtén instrucciones paso a paso y herramientas útiles para un cálculo preciso de la edad.",
-    "tableOfContents": "Tabla de Contenidos"
+    "january": "enero",
+    "february": "febrero",
+    "march": "marzo",
+    "april": "abril",
+    "may": "mayo",
+    "june": "junio",
+    "july": "julio",
+    "august": "agosto",
+    "september": "septiembre",
+    "october": "octubre",
+    "november": "noviembre",
+    "december": "diciembre"
   },
   "pt": {
-    "description": "Aprenda a calcular a idade cronológica de forma rápida e precisa. Obtenha instruções passo a passo e ferramentas práticas para um cálculo preciso da idade.",
-    "tableOfContents": "Índice"
+    "january": "janeiro",
+    "february": "fevereiro",
+    "march": "março",
+    "april": "abril",
+    "may": "maio",
+    "june": "junho",
+    "july": "julho",
+    "august": "agosto",
+    "september": "setembro",
+    "october": "outubro",
+    "november": "novembro",
+    "december": "dezembro"
   },
   "de": {
-    "description": "Erfahren Sie, wie Sie das chronologische Alter schnell und genau berechnen können. Erhalten Sie Schritt-für-Schritt-Anleitungen und praktische Werkzeuge für eine präzise Altersberechnung.",
-    "tableOfContents": "Inhaltsverzeichnis"
+    "january": "Januar",
+    "february": "Februar",
+    "march": "März",
+    "april": "April",
+    "may": "Mai",
+    "june": "Juni",
+    "july": "Juli",
+    "august": "August",
+    "september": "September",
+    "october": "Oktober",
+    "november": "November",
+    "december": "Dezember"
   },
   "fr": {
-    "description": "Apprenez à calculer l'âge chronologique rapidement et précisément. Obtenez des instructions étape par étape et des outils pratiques pour un calcul précis de l'âge.",
-    "tableOfContents": "Table des Matières"
+    "january": "janvier",
+    "february": "février",
+    "march": "mars",
+    "april": "avril",
+    "may": "mai",
+    "june": "juin",
+    "july": "juillet",
+    "august": "août",
+    "september": "septembre",
+    "october": "octobre",
+    "november": "novembre",
+    "december": "décembre"
   },
   "it": {
-    "description": "Impara a calcolare l'età cronologica in modo rapido e preciso. Ottieni istruzioni passo passo e strumenti utili per un calcolo preciso dell'età.",
-    "tableOfContents": "Indice"
+    "january": "gennaio",
+    "february": "febbraio",
+    "march": "marzo",
+    "april": "aprile",
+    "may": "maggio",
+    "june": "giugno",
+    "july": "luglio",
+    "august": "agosto",
+    "september": "settembre",
+    "october": "ottobre",
+    "november": "novembre",
+    "december": "dicembre"
   },
   "ja": {
-    "description": "年齢を迅速かつ正確に計算する方法を学びましょう。正確な年齢計算のためのステップバイステップの手順と便利なツールを手に入れましょう。",
-    "tableOfContents": "目次"
+    "january": "1月",
+    "february": "2月",
+    "march": "3月",
+    "april": "4月",
+    "may": "5月",
+    "june": "6月",
+    "july": "7月",
+    "august": "8月",
+    "september": "9月",
+    "october": "10月",
+    "november": "11月",
+    "december": "12月"
   },
   "ko": {
-    "description": "연령을 빠르고 정확하게 계산하는 방법을 배우십시오. 정확한 연령 계산을 위한 단계별 지침과 유용한 도구를 제공받으세요.",
-    "tableOfContents": "목차"
+    "january": "1월",
+    "february": "2월",
+    "march": "3월",
+    "april": "4월",
+    "may": "5월",
+    "june": "6월",
+    "july": "7월",
+    "august": "8월",
+    "september": "9월",
+    "october": "10월",
+    "november": "11월",
+    "december": "12월"
   }
 }
 
 
 
 
-const parentNode = 'howToCalculateChronoAge';
+
+const parentNode = 'calclator';
 mergeMessages(inputMessages, parentNode);
